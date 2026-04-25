@@ -426,344 +426,131 @@ const result = await cot.execute("What is 23 * 47?");
 
 ## 📖 Detailed Pattern Briefs
 
-### 1. Core Reasoning Patterns (10)
+### Core Reasoning Patterns
 
-#### 1. Chain of Thought
-**folder:** `chain-of-thought/`
-- Guides LLM to articulate reasoning step-by-step before final answer
-- Works by providing few-shot examples with reasoning chains
-- Best for: math, logic, multi-step analysis problems
+Foundational reasoning strategies for breaking down and solving problems step by step.
+How it works: structures model reasoning before final output. Key use cases: analysis, math, logic, and decision support.
 
-#### 2. ReAct
-**folder:** `react/`
-- Interleaves reasoning (thought) with acting (tool use) and observation
-- Loop: Think → Action → Observation → Think...
-- Best for: tool-augmented question answering, research tasks
+| Pattern | Model Complexity | Quadrant | Best For |
+|---------|------------------|----------|----------|
+| [Chain of Thought](./patterns/chain-of-thought/) | Foundational | Q3 - Simple Tasks + Templates | Step-by-step reasoning articulation |
+| [ReAct](./patterns/react/) | Foundational | Q3 - Simple Tasks + Templates | Reasoning + Tool use in loops |
+| [Tree of Thoughts](./patterns/tree-of-thoughts/) | Intermediate | Q1 - Advanced Reasoning + Multi-Agent | Multiple parallel reasoning branches |
+| [Graph of Thoughts](./patterns/graph-of-thoughts/) | Intermediate | Q1 - Advanced Reasoning + Multi-Agent | Graph-based multi-hop reasoning |
+| [Self Consistency](./patterns/self-consistency/) | Foundational | Q2 - Reasoning Intensive Tasks | Majority voting across reasoning paths |
+| [Reflexion](./patterns/reflexion/) | Foundational | Q2 - Reasoning Intensive Tasks | Self-critique and improvement loops |
+| [Plan and Solve](./patterns/plan-and-solve/) | Foundational | Q2 - Reasoning Intensive Tasks | Two-phase: plan decomposition then execution |
+| [Self-Ask](./patterns/self-ask/) | Foundational | Q2 - Reasoning Intensive Tasks | Decomposition-first sub-questioning |
+| [Least-to-Most](./patterns/least-to-most/) | Intermediate | Q2 - Reasoning Intensive Tasks | Solve from easy subproblems to hard |
+| [Chain-of-Verification](./patterns/chain-of-verification/) | Intermediate | Q1 - Advanced Reasoning + Multi-Agent | Draft, verify claims, then revise |
 
-#### 3. Tree of Thoughts
-**folder:** `tree-of-thoughts/`
-- Explores multiple reasoning branches in parallel
-- Each branch evaluated and best path selected
-- Best for: creative writing, strategy, complex decisions
+### Agent Architecture Patterns
 
-#### 4. Graph of Thoughts
-**folder:** `graph-of-thoughts/`
-- Generalized reasoning as graph with nodes and edges
-- Supports aggregation, scoring, critique nodes
-- Best for: complex multi-hop reasoning, analysis
+Building blocks for a single capable agent: tools, memory, and execution control.
+How it works: augments the model with external actions and state. Key use cases: assistants, autonomous task runners, and stateful workflows.
 
-#### 5. Self Consistency
-**folder:** `self-consistency/`
-- Generate multiple reasoning paths, vote on consensus
-- Improves accuracy by reducing single-path errors
-- Best for: reasoning tasks requiring high accuracy
+| Pattern | Model Complexity | Quadrant | Best For |
+|---------|------------------|----------|----------|
+| [Tool Use](./patterns/tool-use/) | Foundational | Q3 - Simple Tasks + Templates | Function calling and API integration |
+| [Multi-Tool Orchestration](./patterns/multi-tool-orchestration/) | Intermediate | Q4 - Complex Orchestration + Efficiency | Coordinating multiple tools in sequence |
+| [Short Term Memory](./patterns/short-term-memory/) | Foundational | Q3 - Simple Tasks + Templates | Conversation context within session |
+| [Long Term Memory](./patterns/long-term-memory/) | Intermediate | Q4 - Complex Orchestration + Efficiency | Persistent cross-session memory |
+| [Agent State Machine](./patterns/agent-state-machine/) | Intermediate | Q4 - Complex Orchestration + Efficiency | Finite state workflows and automation |
+| [Hierarchical Agent](./patterns/hierarchical-agent/) | Intermediate | Q4 - Complex Orchestration + Efficiency | Parent-child agent delegation |
+| [Program-Aided Language (PAL)](./patterns/program-aided-language/) | Intermediate | Q2 - Reasoning Intensive Tasks | Generate and execute code for reasoning |
+| [MCP Tool Registry](./patterns/mcp-tool-registry/) | Intermediate | Q3 - Simple Tasks + Templates | Dynamic tool discovery and binding |
 
-#### 6. Reflexion
-**folder:** `reflexion/`
-- Actor generates → Critic evaluates → Reflector improves
-- Maintains external memory of past failures
-- Best for: iterative refinement, learning from mistakes
+### Multi-Agent Collaboration Patterns
 
-#### 7. Plan and Solve
-**folder:** `plan-and-solve/`
-- Two-phase: (1) Generate plan, (2) Execute stepwise
-- Planning phase decomposes into sub-tasks
-- Best for: complex multi-step tasks, project planning
+Coordination patterns for multiple agents contributing specialized perspectives.
+How it works: distributes reasoning across roles and combines outputs. Key use cases: complex reviews, debates, and team-style problem solving.
 
----
+| Pattern | Model Complexity | Quadrant | Best For |
+|---------|------------------|----------|----------|
+| [Supervisor Pattern](./patterns/supervisor-pattern/) | Intermediate | Q4 - Complex Orchestration + Efficiency | Central coordinator with state tracking |
+| [Agent Swarm](./patterns/agent-swarm/) | Advanced | Q1 - Advanced Reasoning + Multi-Agent | Decentralized emergent behavior |
+| [Round Robin Collaboration](./patterns/round-robin-collaboration/) | Foundational | Q3 - Simple Tasks + Templates | Fair turn-taking coordination |
+| [Publish-Subscribe](./patterns/publish-subscribe/) | Intermediate | Q4 - Complex Orchestration + Efficiency | Event-driven decoupled messaging |
+| [Debate Pattern](./patterns/debate-pattern/) | Intermediate | Q1 - Advanced Reasoning + Multi-Agent | Adversarial argumentation for decisions |
+| [Judge Evaluator](./patterns/judge-evaluator/) | Foundational | Q4 - Complex Orchestration + Efficiency | Independent quality assessment |
+| [Hierarchical Team](./patterns/hierarchical-team/) | Intermediate | Q1 - Advanced Reasoning + Multi-Agent | Multi-level organizational structure |
 
-### 2. Agent Architecture Patterns (8)
+### Workflow Orchestration Patterns
 
-#### 8. Tool Use
-**folder:** `tool-use/`
-- LLM invokes external functions/API calls
-- Define tools with JSON schema, LLM decides when to call
-- Best for: web search, calculations, database queries
+Execution patterns for sequencing, routing, and governing multi-step pipelines.
+How it works: decomposes tasks, controls dependencies, and manages progression. Key use cases: automation pipelines and enterprise process flows.
 
-#### 9. Multi-Tool Orchestration
-**folder:** `multi-tool-orchestration/`
-- Coordinate multiple tools in sequence or parallel
-- Dynamic dependency resolution
-- Best for: complex workflows, data pipelines
+| Pattern | Model Complexity | Quadrant | Best For |
+|---------|------------------|----------|----------|
+| [Prompt Chaining](./patterns/prompt-chaining/) | Foundational | Q3 - Simple Tasks + Templates | Sequential transformations |
+| [Parallelization](./patterns/parallelization/) | Foundational | Q3 - Simple Tasks + Templates | Concurrent batch processing |
+| [Router Pattern](./patterns/router-pattern/) | Foundational | Q3 - Simple Tasks + Templates | Intent-based request routing |
+| [Orchestrator Workers](./patterns/orchestrator-workers/) | Intermediate | Q4 - Complex Orchestration + Efficiency | Dynamic task decomposition |
+| [Evaluator Optimizer](./patterns/evaluator-optimizer/) | Intermediate | Q4 - Complex Orchestration + Efficiency | Iterative feedback-driven refinement |
+| [Human in the Loop](./patterns/human-in-the-loop/) | Foundational | Q3 - Simple Tasks + Templates | Human approval checkpoints |
+| [Gate Checkpoint](./patterns/gate-checkpoint/) | Foundational | Q3 - Simple Tasks + Templates | Automated validation gates |
+| [ReWOO](./patterns/rewoo/) | Advanced | Q1 - Advanced Reasoning + Multi-Agent | Plan with variables, then execute deterministically |
+| [LLM Compiler DAG](./patterns/llm-compiler-dag/) | Advanced | Q1 - Advanced Reasoning + Multi-Agent | Compile workflows into dependency graphs |
 
-#### 10. Short Term Memory
-**folder:** `short-term-memory/`
-- Maintain conversation context within session
-- Sliding window, summary, or pruning strategies
-- Best for: conversation continuity, stateful interactions
+### RAG & Knowledge Integration
 
-#### 11. Long Term Memory
-**folder:** `long-term-memory/`
-- Persistent storage across sessions via vector embeddings
-- Semantic search over user history
-- Best for: user preferences, cross-session continuity
+Patterns for grounding generation in external knowledge sources.
+How it works: retrieves context first, then generates informed responses. Key use cases: document Q&A, enterprise search, and grounded assistants.
 
-#### 12. Agent State Machine
-**folder:** `agent-state-machine/`
-- Model agent behavior as finite states with transitions
-- Explicit workflow: idle → processing → waiting → complete
-- Best for: predictable workflows, process automation
+| Pattern | Model Complexity | Quadrant | Best For |
+|---------|------------------|----------|----------|
+| [Basic RAG](./patterns/basic-rag/) | Foundational | Q3 - Simple Tasks + Templates | Simple retrieve-then-generate |
+| [Advanced RAG](./patterns/advanced-rag/) | Intermediate | Q2 - Reasoning Intensive Tasks | Query transformation and reranking |
+| [Self-RAG](./patterns/self-rag/) | Intermediate | Q2 - Reasoning Intensive Tasks | Conditional retrieval with reflection tokens |
+| [Corrective RAG](./patterns/corrective-rag/) | Intermediate | Q1 - Advanced Reasoning + Multi-Agent | Self-evaluation and correction loops |
+| [Graph RAG](./patterns/graph-rag/) | Advanced | Q1 - Advanced Reasoning + Multi-Agent | Knowledge graph-based retrieval |
+| [Multimodal RAG](./patterns/multimodal-rag/) | Advanced | Q1 - Advanced Reasoning + Multi-Agent | Text, image, audio retrieval |
 
-#### 13. Hierarchical Agent
-**folder:** `hierarchical-agent/`
-- Parent agent delegates to child sub-agents
-- Decomposition: manager → specialized workers
-- Best for: large-scale projects, multi-domain tasks
+### Output & Safety Patterns
 
----
+Patterns to enforce output quality, structure, and safety constraints.
+How it works: validates and filters model behavior with checks and controls. Key use cases: compliance, reliable formatting, and safer user-facing outputs.
 
-### 3. Multi-Agent Collaboration Patterns (7)
+| Pattern | Model Complexity | Quadrant | Best For |
+|---------|------------------|----------|----------|
+| [Structured Output](./patterns/structured-output/) | Foundational | Q3 - Simple Tasks + Templates | JSON/XML schema enforcement |
+| [LLM as Judge](./patterns/llm-as-judge/) | Emerging | Q4 - Complex Orchestration + Efficiency | Multi-dimensional quality scoring |
+| [Guardrails Pattern](./patterns/guardrails-pattern/) | Intermediate | Q2 - Reasoning Intensive Tasks | Input/output validation and filtering |
+| [Output Parsing](./patterns/output-parsing/) | Foundational | Q2 - Reasoning Intensive Tasks | Structured data extraction |
+| [Streaming with Interruptions](./patterns/streaming-interruptions/) | Emerging | Q3 - Simple Tasks + Templates | Real-time streaming with controls |
 
-#### 14. Supervisor Pattern
-**folder:** `supervisor-pattern/`
-- Central supervisor routes tasks to specialized workers
-- Task queue, state tracking, progress monitoring
-- Best for: task distribution, load balancing
+### Operational & Reliability Patterns
 
-#### 15. Agent Swarm
-**folder:** `agent-swarm/`
-- Decentralized autonomous agents
-- Emergent behavior through local interactions
-- Best for: massive parallel optimization, exploration
+Production hardening patterns for resilience, observability, and cost control.
+How it works: adds recovery, monitoring, and runtime optimization mechanisms. Key use cases: high-availability systems and large-scale deployments.
 
-#### 16. Round Robin Collaboration
-**folder:** `round-robin-collaboration/`
-- Agents take turns in sequence
-- Scheduler enforces turn order, task queuing
-- Best for: sequential refinement, fair resource use
+| Pattern | Model Complexity | Quadrant | Best For |
+|---------|------------------|----------|----------|
+| [Retry Backoff](./patterns/retry-backoff/) | Foundational | Q3 - Simple Tasks + Templates | Exponential backoff on failures |
+| [Circuit Breaker](./patterns/circuit-breaker/) | Intermediate | Q4 - Complex Orchestration + Efficiency | Failure isolation and fast-fail |
+| [Cost-Aware Routing](./patterns/cost-aware-routing/) | Emerging | Q1 - Advanced Reasoning + Multi-Agent | Model selection by complexity |
+| [Caching Memoization](./patterns/caching-memoization/) | Foundational | Q3 - Simple Tasks + Templates | Response caching for duplicates |
+| [Observability Tracing](./patterns/observability-tracing/) | Intermediate | Q4 - Complex Orchestration + Efficiency | Built-in logging and debugging |
+| [A/B Testing](./patterns/ab-testing/) | Mature | Q3 - Simple Tasks + Templates | Prompt/model experimentation |
+| [Speculative Decoding](./patterns/speculative-decoding/) | Advanced | Q4 - Complex Orchestration + Efficiency | Draft-verify token generation for low latency |
+| [Fallback Cascade](./patterns/fallback-cascade/) | Intermediate | Q4 - Complex Orchestration + Efficiency | Ordered graceful degradation across providers/models |
 
-#### 17. Publish Subscribe
-**folder:** `publish-subscribe/`
-- Event-driven messaging between agents
-- Topic-based routing, message broker
-- Best for: real-time updates, decoupled systems
+### Advanced Techniques
 
-#### 18. Debate Pattern
-**folder:** `debate-pattern/`
-- Multiple agents present opposing viewpoints
-- Proponent, skeptic, synthesist roles
-- Best for: decision making, critical analysis
+Specialized techniques for self-improvement, simulation, and advanced adaptation.
+How it works: introduces higher-order strategies beyond baseline prompting. Key use cases: experimentation, optimization, and frontier workflows.
 
-#### 19. Judge Evaluator
-**folder:** `judge-evaluator/`
-- Dedicated evaluation agent scores outputs
-- Criteria-based scoring, threshold acceptance
-- Best for: quality assurance, validation
-
-#### 20. Hierarchical Team
-**folder:** `hierarchical-team/`
-- Multi-level organization: executive → manager → lead → worker
-- Reporting relationships, clear responsibilities
-- Best for: organizational simulation, project management
+| Pattern | Model Complexity | Quadrant | Best For |
+|---------|------------------|----------|----------|
+| [Meta-Prompting](./patterns/meta-prompting/) | Emerging | Q1 - Advanced Reasoning + Multi-Agent | Self-optimizing prompts |
+| [Few-Shot Learning](./patterns/few-shot-learning/) | Foundational | Q2 - Reasoning Intensive Tasks | Dynamic in-context examples |
+| [Active Learning](./patterns/active-learning/) | Emerging | Q1 - Advanced Reasoning + Multi-Agent | Agent clarification requests |
+| [Simulated Environment](./patterns/simulated-environment/) | Emerging | Q1 - Advanced Reasoning + Multi-Agent | Sandbox testing and training |
+| [Constitutional AI](./patterns/constitutional-ai/) | Advanced | Q1 - Advanced Reasoning + Multi-Agent | Principle-based self-alignment |
+| [Mixture of Agents](./patterns/mixture-of-agents/) | Advanced | Q1 - Advanced Reasoning + Multi-Agent | Ensemble agent collaboration |
+| [Context Compression](./patterns/context-compression/) | Intermediate | Q2 - Reasoning Intensive Tasks | Summarize long context into compact memory |
 
 ---
-
-### 4. Workflow Orchestration Patterns (9)
-
-#### 21. Prompt Chaining
-**folder:** `prompt-chaining/`
-- Sequential LLM calls where output → input of next
-- Each step transforms data for next stage
-- Best for: multi-step transformations, pipelines
-
-#### 22. Parallelization
-**folder:** `parallelization/`
-- Multiple independent tasks executed concurrently
-- Map phase: distribute, Reduce phase: aggregate
-- Best for: batch processing, speed optimization
-
-#### 23. Router Pattern
-**folder:** `router-pattern/`
-- Classify intent, route to specialized handlers
-- Intent classification determines handler
-- Best for: versatile handling, load distribution
-
-#### 24. Orchestrator Workers
-**folder:** `orchestrator-workers/`
-- Dynamic task decomposition and delegation
-- Central orchestrator decides what to delegate
-- Best for: complex workflows, result aggregation
-
-#### 25. Evaluator Optimizer
-**folder:** `evaluator-optimizer/`
-- Iterative feedback loop: evaluate → optimize
-- Improves output through multiple iterations
-- Best for: content refinement, quality improvement
-
-#### 26. Human in the Loop
-**folder:** `human-in-the-loop/`
-- Humans approve critical outputs before proceeding
-- Checkpoint-based pause for human review
-- Best for: compliance, content approval workflows
-
-#### 27. Gate Checkpoint
-**folder:** `gate-checkpoint/`
-- Validation gates control workflow progression
-- Pass/fail based on criteria
-- Best for: quality control, stage-gated workflows
-
----
-
-### 5. RAG & Knowledge Patterns (6)
-
-#### 28. Basic RAG
-**folder:** `basic-rag/`
-- Simple retrieve → generate pipeline
-- Vector search + LLM context
-- Best for: Q&A, documentation search
-
-#### 29. Advanced RAG
-**folder:** `advanced-rag/`
-- Query transformation, reranking, hybrid search
-- Addresses misaligned queries, poor recall
-- Best for: production RAG systems
-
-#### 30. Self RAG
-**folder:** `self-rag/`
-- Model decides when to retrieve via reflection tokens
-- Conditional retrieval reduces unnecessary calls
-- Best for: efficiency-focused retrieval
-
-#### 31. Corrective RAG
-**folder:** `corrective-rag/`
-- Self-evaluation loop verifies retrieval quality
-- Corrective actions on failure
-- Best for: accuracy-critical applications
-
-#### 32. Graph RAG
-**folder:** `graph-rag/`
-- Knowledge graph based retrieval
-- Entity/relationship traversal
-- Best for: multi-hop questions, entity domains
-
-#### 33. Multimodal RAG
-**folder:** `multimodal-rag/`
-- Text, image, audio retrieval
-- Unified multimodal embeddings
-- Best for: healthcare, media, multimedia knowledge
-
----
-
-### 6. Output & Safety Patterns (5)
-
-#### 34. Structured Output
-**folder:** `structured-output/`
-- Enforce JSON/XML schema in responses
-- Tool calling or parser-based
-- Best for: data extraction, API integration
-
-#### 35. LLM as Judge
-**folder:** `llm-as-judge/`
-- Use LLM to evaluate other LLM outputs
-- Multi-dimension scoring
-- Best for: benchmarking, quality assurance
-
-#### 36. Guardrails Pattern
-**folder:** `guardrails-pattern/`
-- Input/output validation and filtering
-- Content classification, PII protection
-- Best for: safety, compliance
-
-#### 37. Output Parsing
-**folder:** `output-parsing/`
-- Extract structured data from potentially malformed output
-- Regex, parser combinators, LLM-assisted
-- Best for: production reliability
-
-#### 38. Streaming with Interruptions
-**folder:** `streaming-interruptions/`
-- Real-time streaming with pause/cancel controls
-- Buffer management, state sync
-- Best for: interactive applications
-
----
-
-### 7. Operational & Reliability Patterns (8)
-
-#### 39. Retry Backoff
-**folder:** `retry-backoff/`
-- Exponential backoff on transient failures
-- Jitter to prevent thundering herd
-- Best for: API resilience
-
-#### 40. Circuit Breaker
-**folder:** `circuit-breaker/`
-- Open circuit after threshold failures
-- Fail fast, graceful degradation
-- Best for: failure isolation
-
-#### 41. Cost Aware Routing
-**folder:** `cost-aware-routing/`
-- Route to different models by cost/complexity
-- Simple tasks → cheap, complex → expensive
-- Best for: cost optimization
-
-#### 42. Caching Memoization
-**folder:** `caching-memoization/`
-- Cache responses for identical queries
-- Semantic or exact matching
-- Best for: duplicate prevention, latency
-
-#### 43. Observability Tracing
-**folder:** `observability-tracing/`
-- Built-in logging and tracing
-- Span breadcrumbs for debugging
-- Best for: production debugging, audits
-
-#### 44. A/B Testing
-**folder:** `ab-testing/`
-- Experiment with prompt variations
-- Statistical significance tracking
-- Best for: prompt optimization
-
----
-
-### 8. Advanced Patterns (7)
-
-#### 45. Meta Prompting
-**folder:** `meta-prompting/`
-- LLM generates/refines prompts for itself
-- Feedback-driven prompt optimization
-- Best for: prompt engineering automation
-
-#### 46. Few Shot Learning
-**folder:** `few-shot-learning/`
-- Dynamic example selection from library
-- Semantic retrieval of relevant examples
-- Best for: task-specific guidance
-
-#### 47. Active Learning
-**folder:** `active-learning/`
-- Agent requests clarification when uncertain
-- Ambiguity detection, clarification prompts
-- Best for: interactive problem solving
-
-#### 48. Simulated Environment
-**folder:** `simulated-environment/`
-- Run agents in sandbox for testing
-- Safe training, RL-style feedback
-- Best for: agent training, testing
-
-#### 49. Constitutional AI
-**folder:** `constitutional-ai/`
-- Self-alignment through principles
-- Principle chains, harmlessness checking
-- Best for: ethical AI systems
-
-#### 50. Mixture of Agents
-**folder:** `mixture-of-agents/`
-- Multiple specialized agents collaborate
-- Sequential/parallel aggregation
-- Best for: ensemble intelligence
-
-#### 51. Context Compression
-**folder:** `context-compression/`
-- Compresses long interactions into high-signal summaries
-- Keeps memory useful under context window constraints
-- Best for: long-running conversations and bounded context
-
----
-
 ## 🔍 What You'll Find in Each Pattern
 
 Every pattern folder contains:
