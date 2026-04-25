@@ -78,6 +78,48 @@ Fundamental architectural choices that serve specific purposes without significa
 
 ---
 
+### 8. [Decomposition & Verification](./decomposition-verification/README.md)
+**Patterns**: Self-Ask, Least-to-Most, Chain-of-Verification
+
+Reasoning quality through explicit structure. Self-Ask and Least-to-Most shape decomposition before solving; Chain-of-Verification validates after drafting.
+
+- Self-Ask: Break down into focused sub-questions
+- Least-to-Most: Solve from easy to hard dependencies
+- Chain-of-Verification: Verify claims, then revise output
+
+---
+
+### 9. [Execution-Centric Planning](./execution-planning/README.md)
+**Patterns**: Program-Aided Language (PAL), ReWOO, LLM Compiler DAG
+
+Execution-oriented planning and reasoning. PAL uses code execution, ReWOO uses variable-bound plans, DAG compilation structures dependencies for orchestration.
+
+- PAL: Generate code and execute for deterministic reasoning
+- ReWOO: Plan with reusable intermediate variables
+- LLM Compiler DAG: Compile and run dependency graphs
+
+---
+
+### 10. [Runtime Resilience & Efficiency](./runtime-efficiency/README.md)
+**Patterns**: Speculative Decoding, Fallback Cascade
+
+Production runtime optimization and resilience under failure.
+
+- Speculative Decoding: Draft-verify token generation for latency
+- Fallback Cascade: Ordered graceful degradation on failure
+
+---
+
+### 11. [Context & Tooling Infrastructure](./context-tooling/README.md)
+**Patterns**: Context Compression, MCP Tool Registry
+
+Infrastructure patterns for long-running agent reliability and interoperable tool usage.
+
+- Context Compression: Preserve high-signal memory in bounded context windows
+- MCP Tool Registry: Standardized tool discovery and dynamic binding
+
+---
+
 ## Quick Decision Guide
 
 **Need to improve output quality?** → [Evaluation & Improvement Loop](./evaluation-loop/README.md)
@@ -93,6 +135,14 @@ Fundamental architectural choices that serve specific purposes without significa
 **Need workflow approval?** → [Workflow Gates & Approval](./workflow-gates/README.md)
 
 **Need speed or event distribution?** → [Standalone Patterns](./standalone-patterns/README.md)
+
+**Need better decomposition or verification?** → [Decomposition & Verification](./decomposition-verification/README.md)
+
+**Need execution-oriented planning?** → [Execution-Centric Planning](./execution-planning/README.md)
+
+**Need runtime latency/reliability improvements?** → [Runtime Resilience & Efficiency](./runtime-efficiency/README.md)
+
+**Need memory/tooling infrastructure patterns?** → [Context & Tooling Infrastructure](./context-tooling/README.md)
 
 ---
 
@@ -128,6 +178,16 @@ Each group folder contains a detailed README with:
 | Human in the Loop | Approval | Compliance, accountability |
 | Parallelization | Infrastructure | Batch throughput |
 | Publish-Subscribe | Infrastructure | Event-driven systems |
+| Self-Ask | Decomposition | Multi-hop sub-questioning |
+| Least-to-Most | Decomposition | Compositional easy-to-hard solving |
+| Chain-of-Verification | Verification | Draft-check-revise reliability |
+| Program-Aided Language (PAL) | Execution Planning | Deterministic compute via code |
+| ReWOO | Execution Planning | Variable-bound tool workflows |
+| LLM Compiler DAG | Execution Planning | Dependency-graph orchestration |
+| Speculative Decoding | Runtime Efficiency | Lower generation latency |
+| Fallback Cascade | Runtime Resilience | Graceful degradation under failures |
+| Context Compression | Context Infrastructure | Long-context memory compaction |
+| MCP Tool Registry | Tooling Infrastructure | Dynamic tool discovery and binding |
 
 ---
 

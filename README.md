@@ -1,12 +1,12 @@
 # Agentic AI Patterns Library
 
-**A comprehensive, production-ready collection of 50+ design patterns, architectures, and techniques for building intelligent AI-powered applications using Large Language Models (LLMs).**
+**A comprehensive, production-ready collection of 60+ design patterns, architectures, and techniques for building intelligent AI-powered applications using Large Language Models (LLMs).**
 
 This library provides battle-tested patterns that address the full lifecycle of agentic AI development—from core reasoning strategies to multi-agent coordination, workflow orchestration, knowledge integration, safety mechanisms, and operational reliability.
 
 ## 🎯 What This Library Offers
 
-- **50+ Production Patterns**: Proven design patterns for LLM-powered systems
+- **60+ Production Patterns**: Proven design patterns for LLM-powered systems
 - **Real-World Architectures**: Multi-agent systems, RAG pipelines, orchestration patterns
 - **Academic References**: 500+ peer-reviewed papers cited across patterns
 - **Pattern Relationships**: Clear documentation of pattern similarities, differences, and when to use each
@@ -33,7 +33,7 @@ This library consolidates all of this into accessible, well-documented patterns.
 - [Pattern Groups & Comparisons](#pattern-groups--comparisons)
 - [Model Maturity & Capability Matrix](#model-maturity--capability-matrix)
 - [Categories Overview](#categories-overview)
-- [All 50 Patterns](#all-50-patterns)
+- [All 60 Patterns](#all-60-patterns)
 - [Getting Started](#getting-started)
 - [How to Use This Library](#how-to-use-this-library)
 
@@ -76,17 +76,17 @@ Different patterns require different model capabilities. This **4-quadrant matri
 ![Model Maturity & Capability Matrix](./images/Model-Maturity-Capability-Matrix.png)
 
 **Legend:**
-- ⭐ **Q1**: Premium Models (Claude Opus, GPT-4) - 14 patterns - Advanced Reasoning + Multi-Agent
-- ⚠️ **Q2**: Constrained Design (7B models) - 8 patterns - Reasoning Intensive Tasks
-- ✅ **Q3**: Simple & Efficient (Local models) - 16 patterns - Simple Tasks + Templates
-- 🚀 **Q4**: Large & Efficient (Sonnet, 3.5) - 12 patterns - Complex Orchestration + Efficiency
+- ⭐ **Q1**: Premium Models (Claude Opus, GPT-4) - 17 patterns - Advanced Reasoning + Multi-Agent
+- ⚠️ **Q2**: Constrained Design (7B models) - 12 patterns - Reasoning Intensive Tasks
+- ✅ **Q3**: Simple & Efficient (Local models) - 17 patterns - Simple Tasks + Templates
+- 🚀 **Q4**: Large & Efficient (Sonnet, 3.5) - 14 patterns - Complex Orchestration + Efficiency
 
 ### Quadrant Breakdown
 
 #### **Q1: Advanced Reasoning + Multi-Agent** ⭐ Premium Models
 **Best Models**: Claude Opus, GPT-4, o1, Gemini 2.0
 
-**Patterns** (14):
+**Patterns** (17):
 - [Tree of Thoughts](./patterns/tree-of-thoughts/) — Complex multi-branch reasoning
 - [Graph of Thoughts](./patterns/graph-of-thoughts/) — Graph-based reasoning
 - [Debate Pattern](./patterns/debate-pattern/) — Adversarial argumentation
@@ -101,6 +101,9 @@ Different patterns require different model capabilities. This **4-quadrant matri
 - [Active Learning](./patterns/active-learning/) — Uncertainty-aware clarification
 - [Simulated Environment](./patterns/simulated-environment/) — Complex sandbox scenarios
 - [Cost-Aware Routing](./patterns/cost-aware-routing/) — Intelligent model selection
+- [Chain-of-Verification](./patterns/chain-of-verification/) — Draft-check-revise reliability loop
+- [ReWOO](./patterns/rewoo/) — Variable-bound planning with deterministic execution
+- [LLM Compiler DAG](./patterns/llm-compiler-dag/) — Dependency-graph orchestration and execution
 
 **Why These**: Require strong reasoning, planning, evaluation capabilities; benefit from multi-turn reasoning; handle complex abstractions.
 
@@ -109,7 +112,7 @@ Different patterns require different model capabilities. This **4-quadrant matri
 #### **Q2: Reasoning Intensive Tasks** ⚠️ Use Careful Design
 **Best Models**: Open-source 7B-13B (Mistral, Llama), Smaller APIs
 
-**Patterns** (8):
+**Patterns** (12):
 - [Reflexion](./patterns/reflexion/) — Simple self-critique loops
 - [Plan and Solve](./patterns/plan-and-solve/) — Explicit decomposition
 - [Self Consistency](./patterns/self-consistency/) — Majority voting
@@ -118,6 +121,10 @@ Different patterns require different model capabilities. This **4-quadrant matri
 - [Advanced RAG](./patterns/advanced-rag/) — Query transformation
 - [Output Parsing](./patterns/output-parsing/) — Structured extraction
 - [Guardrails Pattern](./patterns/guardrails-pattern/) — Input/output validation
+- [Self-Ask](./patterns/self-ask/) — Sub-question decomposition before solving
+- [Least-to-Most](./patterns/least-to-most/) — Progressive easy-to-hard problem solving
+- [Program-Aided Language (PAL)](./patterns/program-aided-language/) — Code-assisted deterministic reasoning
+- [Context Compression](./patterns/context-compression/) — Salient memory summarization for long context
 
 **Constraints**: Limited reasoning depth; works better with guided prompts; needs strong few-shot examples; benefits from decomposition; simpler architectures.
 
@@ -128,7 +135,7 @@ Different patterns require different model capabilities. This **4-quadrant matri
 #### **Q3: Simple Tasks + Templates** ✅ Optimal for Small Models
 **Best Models**: Edge models, 3B-7B local models, API-lite options
 
-**Patterns** (16):
+**Patterns** (17):
 - [Chain of Thought](./patterns/chain-of-thought/) — Simple step-by-step (with few-shots)
 - [ReAct](./patterns/react/) — Basic reasoning + tools (structured)
 - [Prompt Chaining](./patterns/prompt-chaining/) — Sequential transformations
@@ -140,11 +147,12 @@ Different patterns require different model capabilities. This **4-quadrant matri
 - [Retry Backoff](./patterns/retry-backoff/) — Failure recovery
 - [Caching Memoization](./patterns/caching-memoization/) — Response caching
 - [Gate Checkpoint](./patterns/gate-checkpoint/) — Automated validation
-- [Parallelization](./parallelization/) — Batch processing
+- [Parallelization](./patterns/parallelization/) — Batch processing
 - [Round Robin Collaboration](./patterns/round-robin-collaboration/) — Sequential turns
 - [Human in the Loop](./patterns/human-in-the-loop/) — Human approval
 - [Streaming with Interruptions](./patterns/streaming-interruptions/) — Real-time control
 - [A/B Testing](./patterns/ab-testing/) — Experimentation
+- [MCP Tool Registry](./patterns/mcp-tool-registry/) — Dynamic tool discovery and binding
 
 **Why These**: Simple operations; deterministic routing; static pipelines; benefit from templates; don't require deep reasoning.
 
@@ -153,7 +161,7 @@ Different patterns require different model capabilities. This **4-quadrant matri
 #### **Q4: Complex Orchestration + Efficiency** 🚀 Maximum Efficiency
 **Best Models**: Any frontier model (Claude, GPT-4, o1)
 
-**Patterns** (12):
+**Patterns** (14):
 - [Multi-Tool Orchestration](./patterns/multi-tool-orchestration/) — Complex tool chains
 - [Orchestrator Workers](./patterns/orchestrator-workers/) — Dynamic decomposition
 - [Supervisor Pattern](./patterns/supervisor-pattern/) — Intelligent coordination
@@ -166,6 +174,8 @@ Different patterns require different model capabilities. This **4-quadrant matri
 - [LLM as Judge](./patterns/llm-as-judge/) — Multi-dimensional scoring
 - [Observability Tracing](./patterns/observability-tracing/) — Detailed logging
 - [Circuit Breaker](./patterns/circuit-breaker/) — Failure isolation
+- [Speculative Decoding](./patterns/speculative-decoding/) — Draft-verify decoding for latency gains
+- [Fallback Cascade](./patterns/fallback-cascade/) — Ordered resilience across model/provider tiers
 
 **Benefit**: Leverage full capability for efficiency; handle dynamic scenarios; reduce infrastructure needs.
 
@@ -234,20 +244,20 @@ Different patterns require different model capabilities. This **4-quadrant matri
 
 | Category | Count | Description | Key Use Cases |
 |----------|-------|-------------|---|
-| **Core Reasoning** | 7 | Step-by-step reasoning strategies for complex problem solving | Math, logic, analysis, decision-making |
-| **Agent Architecture** | 6 | Core agent components: tools, memory, state management | Building robust individual agents |
+| **Core Reasoning** | 10 | Step-by-step reasoning strategies for complex problem solving | Math, logic, analysis, decision-making |
+| **Agent Architecture** | 8 | Core agent components: tools, memory, state management | Building robust individual agents |
 | **Multi-Agent Collaboration** | 7 | Patterns for multiple agents working together | Teams, swarms, hierarchies, debates |
-| **Workflow Orchestration** | 7 | Orchestrating multi-step processes and intelligent routing | Pipelines, task distribution, approval flows |
+| **Workflow Orchestration** | 9 | Orchestrating multi-step processes and intelligent routing | Pipelines, task distribution, approval flows |
 | **RAG & Knowledge Integration** | 6 | Retrieval-augmented generation and knowledge systems | Q&A, document search, context grounding |
 | **Output & Safety** | 5 | Structured outputs, validation, and safety guardrails | Data extraction, compliance, safety |
-| **Operational Reliability** | 6 | Reliability, cost optimization, caching, observability | Production systems, monitoring, resilience |
-| **Advanced Techniques** | 6 | Meta-prompting, self-improvement, simulated environments | Optimization, learning, experimentation |
+| **Operational Reliability** | 8 | Reliability, cost optimization, caching, observability | Production systems, monitoring, resilience |
+| **Advanced Techniques** | 7 | Meta-prompting, self-improvement, simulated environments | Optimization, learning, experimentation |
 
 ---
 
-## 📋 All 50 Patterns by Category
+## 📋 All 60 Patterns by Category
 
-### 1️⃣ Core Reasoning Patterns (7)
+### 1️⃣ Core Reasoning Patterns (10)
 | Pattern | Complexity | Use Case | Link |
 |---------|------------|----------|------|
 | [Chain of Thought](./patterns/chain-of-thought/) | Foundational | Step-by-step reasoning articulation | [README](./patterns/chain-of-thought/README.md) |
@@ -257,8 +267,11 @@ Different patterns require different model capabilities. This **4-quadrant matri
 | [Self Consistency](./patterns/self-consistency/) | Foundational | Majority voting across reasoning paths | [README](./patterns/self-consistency/README.md) |
 | [Reflexion](./patterns/reflexion/) | Foundational | Self-critique and improvement loops | [README](./patterns/reflexion/README.md) |
 | [Plan and Solve](./patterns/plan-and-solve/) | Foundational | Two-phase: plan decomposition then execution | [README](./patterns/plan-and-solve/README.md) |
+| [Self-Ask](./patterns/self-ask/) | Foundational | Decomposition-first sub-questioning | [README](./patterns/self-ask/README.md) |
+| [Least-to-Most](./patterns/least-to-most/) | Intermediate | Solve from easy subproblems to hard | [README](./patterns/least-to-most/README.md) |
+| [Chain-of-Verification](./patterns/chain-of-verification/) | Intermediate | Draft, verify claims, then revise | [README](./patterns/chain-of-verification/README.md) |
 
-### 2️⃣ Agent Architecture Patterns (6)
+### 2️⃣ Agent Architecture Patterns (8)
 | Pattern | Complexity | Use Case | Link |
 |---------|------------|----------|------|
 | [Tool Use](./patterns/tool-use/) | Foundational | Function calling and API integration | [README](./patterns/tool-use/README.md) |
@@ -267,6 +280,8 @@ Different patterns require different model capabilities. This **4-quadrant matri
 | [Long Term Memory](./patterns/long-term-memory/) | Intermediate | Persistent cross-session memory | [README](./patterns/long-term-memory/README.md) |
 | [Agent State Machine](./patterns/agent-state-machine/) | Intermediate | Finite state workflows and automation | [README](./patterns/agent-state-machine/README.md) |
 | [Hierarchical Agent](./patterns/hierarchical-agent/) | Intermediate | Parent-child agent delegation | [README](./patterns/hierarchical-agent/README.md) |
+| [Program-Aided Language (PAL)](./patterns/program-aided-language/) | Intermediate | Generate and execute code for reasoning | [README](./patterns/program-aided-language/README.md) |
+| [MCP Tool Registry](./patterns/mcp-tool-registry/) | Intermediate | Dynamic tool discovery and binding | [README](./patterns/mcp-tool-registry/README.md) |
 
 ### 3️⃣ Multi-Agent Collaboration Patterns (7)
 | Pattern | Complexity | Use Case | Link | Comparison |
@@ -279,7 +294,7 @@ Different patterns require different model capabilities. This **4-quadrant matri
 | [Judge Evaluator](./patterns/judge-evaluator/) | Foundational | Independent quality assessment | [README](./patterns/judge-evaluator/README.md) | [vs Optimizer](./pattern-groups/evaluation-loop/) |
 | [Hierarchical Team](./patterns/hierarchical-team/) | Intermediate | Multi-level organizational structure | [README](./patterns/hierarchical-team/README.md) | [vs Supervisor](./pattern-groups/task-delegation/) |
 
-### 4️⃣ Workflow Orchestration Patterns (7)
+### 4️⃣ Workflow Orchestration Patterns (9)
 | Pattern | Complexity | Use Case | Link | Comparison |
 |---------|------------|----------|------|-----------|
 | [Prompt Chaining](./patterns/prompt-chaining/) | Foundational | Sequential transformations | [README](./patterns/prompt-chaining/README.md) | [vs Round-Robin](./pattern-groups/sequential-processing/) |
@@ -289,6 +304,8 @@ Different patterns require different model capabilities. This **4-quadrant matri
 | [Evaluator Optimizer](./patterns/evaluator-optimizer/) | Intermediate | Iterative feedback-driven refinement | [README](./patterns/evaluator-optimizer/README.md) | [vs Judge](./pattern-groups/evaluation-loop/) |
 | [Human in the Loop](./patterns/human-in-the-loop/) | Foundational | Human approval checkpoints | [README](./patterns/human-in-the-loop/README.md) | [vs Gate](./pattern-groups/workflow-gates/) |
 | [Gate Checkpoint](./patterns/gate-checkpoint/) | Foundational | Automated validation gates | [README](./patterns/gate-checkpoint/README.md) | [vs HITL](./pattern-groups/workflow-gates/) |
+| [ReWOO](./patterns/rewoo/) | Advanced | Plan with variables, then execute deterministically | [README](./patterns/rewoo/README.md) | [vs Orchestrator](./pattern-groups/request-distribution/) |
+| [LLM Compiler DAG](./patterns/llm-compiler-dag/) | Advanced | Compile workflows into dependency graphs | [README](./patterns/llm-compiler-dag/README.md) | [vs Chaining](./pattern-groups/sequential-processing/) |
 
 ### 5️⃣ RAG & Knowledge Integration (6)
 | Pattern | Complexity | Use Case | Link |
@@ -309,7 +326,7 @@ Different patterns require different model capabilities. This **4-quadrant matri
 | [Output Parsing](./patterns/output-parsing/) | Foundational | Structured data extraction | [README](./patterns/output-parsing/README.md) |
 | [Streaming with Interruptions](./patterns/streaming-interruptions/) | Emerging | Real-time streaming with controls | [README](./patterns/streaming-interruptions/README.md) |
 
-### 7️⃣ Operational & Reliability Patterns (6)
+### 7️⃣ Operational & Reliability Patterns (8)
 | Pattern | Complexity | Use Case | Link |
 |---------|------------|----------|------|
 | [Retry Backoff](./patterns/retry-backoff/) | Foundational | Exponential backoff on failures | [README](./patterns/retry-backoff/README.md) |
@@ -318,8 +335,10 @@ Different patterns require different model capabilities. This **4-quadrant matri
 | [Caching Memoization](./patterns/caching-memoization/) | Foundational | Response caching for duplicates | [README](./patterns/caching-memoization/README.md) |
 | [Observability Tracing](./patterns/observability-tracing/) | Intermediate | Built-in logging and debugging | [README](./patterns/observability-tracing/README.md) |
 | [A/B Testing](./patterns/ab-testing/) | Mature | Prompt/model experimentation | [README](./patterns/ab-testing/README.md) |
+| [Speculative Decoding](./patterns/speculative-decoding/) | Advanced | Draft-verify token generation for low latency | [README](./patterns/speculative-decoding/README.md) |
+| [Fallback Cascade](./patterns/fallback-cascade/) | Intermediate | Ordered graceful degradation across providers/models | [README](./patterns/fallback-cascade/README.md) |
 
-### 8️⃣ Advanced Techniques (6)
+### 8️⃣ Advanced Techniques (7)
 | Pattern | Complexity | Use Case | Link |
 |---------|------------|----------|------|
 | [Meta-Prompting](./patterns/meta-prompting/) | Emerging | Self-optimizing prompts | [README](./patterns/meta-prompting/README.md) |
@@ -328,6 +347,7 @@ Different patterns require different model capabilities. This **4-quadrant matri
 | [Simulated Environment](./patterns/simulated-environment/) | Emerging | Sandbox testing and training | [README](./patterns/simulated-environment/README.md) |
 | [Constitutional AI](./patterns/constitutional-ai/) | Advanced | Principle-based self-alignment | [README](./patterns/constitutional-ai/README.md) |
 | [Mixture of Agents](./patterns/mixture-of-agents/) | Advanced | Ensemble agent collaboration | [README](./patterns/mixture-of-agents/README.md) |
+| [Context Compression](./patterns/context-compression/) | Intermediate | Summarize long context into compact memory | [README](./patterns/context-compression/README.md) |
 
 ---
 
@@ -374,7 +394,7 @@ Each pattern includes **5-10 academic references** from:
 
 ## 📖 Detailed Pattern Briefs
 
-### 1. Core Reasoning Patterns (7)
+### 1. Core Reasoning Patterns (10)
 
 #### 1. Chain of Thought
 **folder:** `chain-of-thought/`
@@ -420,7 +440,7 @@ Each pattern includes **5-10 academic references** from:
 
 ---
 
-### 2. Agent Architecture Patterns (6)
+### 2. Agent Architecture Patterns (8)
 
 #### 8. Tool Use
 **folder:** `tool-use/`
@@ -506,7 +526,7 @@ Each pattern includes **5-10 academic references** from:
 
 ---
 
-### 4. Workflow Orchestration Patterns (7)
+### 4. Workflow Orchestration Patterns (9)
 
 #### 21. Prompt Chaining
 **folder:** `prompt-chaining/`
@@ -626,7 +646,7 @@ Each pattern includes **5-10 academic references** from:
 
 ---
 
-### 7. Operational & Reliability Patterns (6)
+### 7. Operational & Reliability Patterns (8)
 
 #### 39. Retry Backoff
 **folder:** `retry-backoff/`
@@ -666,7 +686,7 @@ Each pattern includes **5-10 academic references** from:
 
 ---
 
-### 8. Advanced Patterns (6)
+### 8. Advanced Patterns (7)
 
 #### 45. Meta Prompting
 **folder:** `meta-prompting/`
@@ -703,6 +723,12 @@ Each pattern includes **5-10 academic references** from:
 - Multiple specialized agents collaborate
 - Sequential/parallel aggregation
 - Best for: ensemble intelligence
+
+#### 51. Context Compression
+**folder:** `context-compression/`
+- Compresses long interactions into high-signal summaries
+- Keeps memory useful under context window constraints
+- Best for: long-running conversations and bounded context
 
 ---
 
@@ -783,7 +809,7 @@ const result = await cot.execute("What is 23 * 47?");
 ## 📊 Library Statistics
 
 ```
-Total Patterns: 50+
+Total Patterns: 60+
 Categories: 8
 Academic References: 500+
 

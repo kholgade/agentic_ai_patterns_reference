@@ -1,6 +1,6 @@
 # Agentic AI Patterns - Complete Reference
 
-This folder contains **50+ design patterns** for building intelligent LLM-powered applications. Each pattern is in its own folder with detailed documentation, code examples, and academic references.
+This folder contains **60+ design patterns** for building intelligent LLM-powered applications. Each pattern is in its own folder with detailed documentation, code examples, and academic references.
 
 ---
 
@@ -17,9 +17,9 @@ This folder contains **50+ design patterns** for building intelligent LLM-powere
 
 ---
 
-## 🎯 Quick Links to All 50 Patterns
+## 🎯 Quick Links to All 60 Patterns
 
-### 1️⃣ Core Reasoning Patterns (7)
+### 1️⃣ Core Reasoning Patterns (10)
 
 Master foundational reasoning strategies for complex problem-solving.
 
@@ -32,10 +32,13 @@ Master foundational reasoning strategies for complex problem-solving.
 | [Self Consistency](./self-consistency/) | `self-consistency/` | Majority voting across reasoning paths | Foundational |
 | [Reflexion](./reflexion/) | `reflexion/` | Self-critique and improvement loops | Foundational |
 | [Plan and Solve](./plan-and-solve/) | `plan-and-solve/` | Two-phase: plan decomposition then execution | Foundational |
+| [Self-Ask](./self-ask/) | `self-ask/` | Decomposition-first sub-questioning | Foundational |
+| [Least-to-Most](./least-to-most/) | `least-to-most/` | Solve from easy subproblems to hard | Intermediate |
+| [Chain-of-Verification](./chain-of-verification/) | `chain-of-verification/` | Draft, verify claims, then revise | Intermediate |
 
 ---
 
-### 2️⃣ Agent Architecture Patterns (6)
+### 2️⃣ Agent Architecture Patterns (8)
 
 Build robust individual agents with tools, memory, and state management.
 
@@ -47,6 +50,8 @@ Build robust individual agents with tools, memory, and state management.
 | [Long Term Memory](./long-term-memory/) | `long-term-memory/` | Persistent cross-session memory | Intermediate |
 | [Agent State Machine](./agent-state-machine/) | `agent-state-machine/` | Finite state workflows and automation | Intermediate |
 | [Hierarchical Agent](./hierarchical-agent/) | `hierarchical-agent/` | Parent-child agent delegation | Intermediate |
+| [Program-Aided Language (PAL)](./program-aided-language/) | `program-aided-language/` | Generate and execute code for reasoning | Intermediate |
+| [MCP Tool Registry](./mcp-tool-registry/) | `mcp-tool-registry/` | Dynamic tool discovery and binding | Intermediate |
 
 ---
 
@@ -66,7 +71,7 @@ Coordinate multiple agents working together with various architectures.
 
 ---
 
-### 4️⃣ Workflow Orchestration Patterns (7)
+### 4️⃣ Workflow Orchestration Patterns (9)
 
 Orchestrate multi-step processes and intelligent routing.
 
@@ -79,6 +84,8 @@ Orchestrate multi-step processes and intelligent routing.
 | [Evaluator Optimizer](./evaluator-optimizer/) | `evaluator-optimizer/` | Iterative feedback-driven refinement | Intermediate | [vs Judge](../pattern-groups/evaluation-loop/) |
 | [Human in the Loop](./human-in-the-loop/) | `human-in-the-loop/` | Human approval checkpoints | Foundational | [vs Gate](../pattern-groups/workflow-gates/) |
 | [Gate Checkpoint](./gate-checkpoint/) | `gate-checkpoint/` | Automated validation gates | Foundational | [vs HITL](../pattern-groups/workflow-gates/) |
+| [ReWOO](./rewoo/) | `rewoo/` | Plan with variables, then execute deterministically | Advanced | [vs Orchestrator](../pattern-groups/request-distribution/) |
+| [LLM Compiler DAG](./llm-compiler-dag/) | `llm-compiler-dag/` | Compile workflows into dependency graphs | Advanced | [vs Chaining](../pattern-groups/sequential-processing/) |
 
 ---
 
@@ -111,7 +118,7 @@ Structured outputs, validation, and safety guardrails.
 
 ---
 
-### 7️⃣ Operational & Reliability Patterns (6)
+### 7️⃣ Operational & Reliability Patterns (8)
 
 Production reliability, cost optimization, monitoring.
 
@@ -123,10 +130,12 @@ Production reliability, cost optimization, monitoring.
 | [Caching Memoization](./caching-memoization/) | `caching-memoization/` | Response caching for duplicates | Foundational |
 | [Observability Tracing](./observability-tracing/) | `observability-tracing/` | Built-in logging and debugging | Intermediate |
 | [A/B Testing](./ab-testing/) | `ab-testing/` | Prompt/model experimentation | Mature |
+| [Speculative Decoding](./speculative-decoding/) | `speculative-decoding/` | Draft-verify token generation for low latency | Advanced |
+| [Fallback Cascade](./fallback-cascade/) | `fallback-cascade/` | Ordered graceful degradation across providers/models | Intermediate |
 
 ---
 
-### 8️⃣ Advanced Techniques (6)
+### 8️⃣ Advanced Techniques (7)
 
 Meta-prompting, self-improvement, simulated environments.
 
@@ -138,6 +147,7 @@ Meta-prompting, self-improvement, simulated environments.
 | [Simulated Environment](./simulated-environment/) | `simulated-environment/` | Sandbox testing and training | Emerging |
 | [Constitutional AI](./constitutional-ai/) | `constitutional-ai/` | Principle-based self-alignment | Advanced |
 | [Mixture of Agents](./mixture-of-agents/) | `mixture-of-agents/` | Ensemble agent collaboration | Advanced |
+| [Context Compression](./context-compression/) | `context-compression/` | Summarize long context into compact memory | Intermediate |
 
 ---
 
@@ -170,14 +180,14 @@ Meta-prompting, self-improvement, simulated environments.
 
 | Category | Count | Best For |
 |----------|-------|----------|
-| Core Reasoning | 7 | Math, logic, step-by-step analysis |
-| Agent Architecture | 6 | Building individual agent components |
+| Core Reasoning | 10 | Math, logic, step-by-step analysis |
+| Agent Architecture | 8 | Building individual agent components |
 | Multi-Agent Collaboration | 7 | Teams, swarms, coordination |
-| Workflow Orchestration | 7 | Pipelines, task routing, approval flows |
+| Workflow Orchestration | 9 | Pipelines, task routing, approval flows |
 | RAG & Knowledge | 6 | Q&A, document search, knowledge grounding |
 | Output & Safety | 5 | Data extraction, compliance, safety |
-| Operational & Reliability | 6 | Production systems, monitoring, resilience |
-| Advanced Techniques | 6 | Optimization, learning, experimentation |
+| Operational & Reliability | 8 | Production systems, monitoring, resilience |
+| Advanced Techniques | 7 | Optimization, learning, experimentation |
 
 ---
 
@@ -226,7 +236,7 @@ pattern-name/
 ## 📊 Statistics
 
 ```
-Total Patterns: 50+
+Total Patterns: 60+
 Total Folders: 8 categories
 
 Complexity Distribution:
