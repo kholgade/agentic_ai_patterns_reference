@@ -1,8 +1,8 @@
 # Agentic AI Patterns Library
 
-**A comprehensive, production-ready collection of 60+ design patterns, architectures, and techniques for building intelligent AI-powered applications using Large Language Models (LLMs).**
+**A comprehensive collection of 60+ design patterns, architectures, and techniques for building intelligent AI-powered applications using Large Language Models (LLMs).**
 
-This library provides battle-tested patterns that address the full lifecycle of agentic AI development—from core reasoning strategies to multi-agent coordination, workflow orchestration, knowledge integration, safety mechanisms, and operational reliability.
+This library provides documented patterns that address the full lifecycle of agentic AI development—from core reasoning strategies to multi-agent coordination, workflow orchestration, knowledge integration, safety mechanisms, and operational reliability.
 
 ## 📌 Page Content Index
 
@@ -59,7 +59,7 @@ For patterns that are similar or overlapping, start with the **Pattern Groups** 
 
 ## 📚 Pattern Groups & Comparisons
 
-Not sure which pattern to use? Check the **[Pattern Groups INDEX](./pattern-groups/INDEX.md)** for:
+Not sure which pattern to use? Check the **[Pattern Groups README](./pattern-groups/README.md)** for:
 - Side-by-side pattern comparisons
 - When to use each pattern
 - When NOT to use each pattern
@@ -90,18 +90,25 @@ Different patterns require different model capabilities. This **4-quadrant matri
 | **Workflow Orchestration** | 9 | Orchestrating multi-step processes and intelligent routing | Pipelines, task distribution, approval flows |
 | **RAG & Knowledge Integration** | 6 | Retrieval-augmented generation and knowledge systems | Q&A, document search, context grounding |
 | **Output & Safety** | 5 | Structured outputs, validation, and safety guardrails | Data extraction, compliance, safety |
+| **Security & Access Control** | 5 | Prompt injection defense, tool permissioning, secrets, sandboxing, audit | Security hardening, compliance, threat prevention |
 | **Operational Reliability** | 8 | Reliability, cost optimization, caching, observability | Production systems, monitoring, resilience |
 | **Advanced Techniques** | 7 | Meta-prompting, self-improvement, simulated environments | Optimization, learning, experimentation |
 
 ## 📋 Pattern Directory Structure
 
-All 60+ patterns are organized in the **[patterns/](./patterns/)** directory by category:
+All 65+ patterns are organized in the **[patterns/](./patterns/)** directory by category:
 - Core Reasoning Patterns
 - Agent Architecture Patterns  
 - Multi-Agent Collaboration Patterns
 - Workflow Orchestration Patterns
 - RAG & Knowledge Integration Patterns
 - Output & Safety Patterns
+- **Security & Access Control Patterns** (NEW)
+  - Prompt Injection Defense
+  - Tool Permissioning
+  - Secret Handling
+  - Sandboxing
+  - Audit Logging
 - Operational & Reliability Patterns
 - Advanced Techniques
 
@@ -138,7 +145,7 @@ For patterns that are similar:
 ├── request-distribution/      # Router vs Orchestrator
 ├── debate-consensus/          # Debate vs Swarm
 ├── workflow-gates/            # Gate vs Human-in-Loop
-└── INDEX.md                   # Start here for decision guide
+└── README.md                   # Start here for decision guide
 ```
 
 Each group has:
@@ -204,8 +211,8 @@ pattern-name/
 - **Categories**: 8
 - **Academic References**: 32+ arxiv papers, 130+ tools/docs/benchmarks
 - **Pattern Types**:
-  - Foundational (mature, well-tested): 20 patterns
-  - Intermediate (proven in production): 22 patterns
+  - Foundational: 20 patterns
+  - Intermediate: 22 patterns
   - Emerging (newer, experimental): 6 patterns
   - Advanced (specialized, complex): 4+ patterns
 - **Implementation Examples**: Python + JavaScript for each pattern

@@ -118,7 +118,21 @@ Structured outputs, validation, and safety guardrails.
 
 ---
 
-### 7️⃣ Operational & Reliability Patterns (8)
+### 7️⃣ Security & Access Control Patterns (5)
+
+Security hardening, threat prevention, and compliance for agentic systems.
+
+| Pattern | Folder | Purpose | Complexity |
+|---------|--------|---------|------------|
+| [Prompt Injection Defense](./prompt-injection-defense/) | `prompt-injection-defense/` | Protect against adversarial prompt attacks | Advanced |
+| [Tool Permissioning](./tool-permissioning/) | `tool-permissioning/` | Fine-grained access control for tools | Intermediate |
+| [Secret Handling](./secret-handling/) | `secret-handling/` | Secure credential management | Intermediate |
+| [Sandboxing](./sandboxing/) | `sandboxing/` | Isolated execution environments | Advanced |
+| [Audit Logging](./audit-logging/) | `audit-logging/` | Security event tracking and compliance | Intermediate |
+
+---
+
+### 8️⃣ Operational & Reliability Patterns (8)
 
 Production reliability, cost optimization, monitoring.
 
@@ -135,7 +149,7 @@ Production reliability, cost optimization, monitoring.
 
 ---
 
-### 8️⃣ Advanced Techniques (7)
+### 9️⃣ Advanced Techniques (7)
 
 Meta-prompting, self-improvement, simulated environments.
 
@@ -167,6 +181,12 @@ Meta-prompting, self-improvement, simulated environments.
 
 ### "I need safe production systems"
 → [Retry Backoff](./retry-backoff/) + [Circuit Breaker](./circuit-breaker/) + [Observability Tracing](./observability-tracing/) + [Gate Checkpoint](./gate-checkpoint/)
+
+### "I need security hardening"
+→ [Prompt Injection Defense](./prompt-injection-defense/) + [Tool Permissioning](./tool-permissioning/) + [Secret Handling](./secret-handling/)
+
+### "I need compliance and audit"
+→ [Audit Logging](./audit-logging/) + [Guardrails Pattern](./guardrails-pattern/) + [Human in the Loop](./human-in-the-loop/)
 
 ### "I need to make decisions"
 → [Debate Pattern](./debate-pattern/) or [Self Consistency](./self-consistency/)
