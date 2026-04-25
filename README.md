@@ -7,24 +7,24 @@ This library provides battle-tested patterns that address the full lifecycle of 
 ## 📌 Page Content Index
 
 - [What This Library Offers](#-what-this-library-offers)
+- [Getting Started](#-getting-started)
+- [🏗️ Systems Layer (Tier-2 Architecture)](#systems-layer-tier-2-architecture)
 - [Quick Navigation](#-quick-navigation)
 - [Pattern Groups & Comparisons](#-pattern-groups--comparisons)
 - [Model Maturity & Capability Matrix](#-model-maturity--capability-matrix)
 - [Categories Overview](#categories-overview)
+- [Pattern Directory Structure](#-pattern-directory-structure)
 - [How to Use This Library](#-how-to-use-this-library)
-- [Library Statistics](#-library-statistics)
 - [What You'll Find in Each Pattern](#-what-youll-find-in-each-pattern)
+- [Library Statistics](#-library-statistics)
 - [Academic Foundation](#-academic-foundation)
-- [Getting Started (Separate Page)](./GETTING_STARTED.md)
-- [Pattern Groups Index](./pattern-groups/README.md)
-- [Patterns Index](./patterns/README.md)
-- [Systems Layer (Tier-2 Architecture)](#systems-layer-tier-2-architecture)
+- [Related Resources](#-related-resources)
 
 ## 🎯 What This Library Offers
 
 - **60+ Production Patterns**: Proven design patterns for LLM-powered systems
 - **Real-World Architectures**: Multi-agent systems, RAG pipelines, orchestration patterns
-- **Academic References**: 500+ peer-reviewed papers cited across patterns
+- **Academic References**: 32+ arxiv papers, 130+ tools/docs/benchmarks
 - **Pattern Relationships**: Clear documentation of pattern similarities, differences, and when to use each
 - **Multiple Implementations**: Python code examples and JavaScript/TypeScript usage
 - **Complete Explanations**: ASCII diagrams, detailed use cases, tradeoff analysis
@@ -202,7 +202,7 @@ pattern-name/
 
 - **Total Patterns**: 60+
 - **Categories**: 8
-- **Academic References**: 500+ peer-reviewed papers
+- **Academic References**: 32+ arxiv papers, 130+ tools/docs/benchmarks
 - **Pattern Types**:
   - Foundational (mature, well-tested): 20 patterns
   - Intermediate (proven in production): 22 patterns
@@ -210,16 +210,23 @@ pattern-name/
   - Advanced (specialized, complex): 4+ patterns
 - **Implementation Examples**: Python + JavaScript for each pattern
 
-## � gran Academic Foundation
+## 🔭 Academic Foundation
 
-This library is grounded in extensive academic research, with patterns derived from and validated by:
-- Foundational papers on prompt engineering (Chain-of-Thought, ReAct, etc.)
-- Multi-agent systems research (Supervisor patterns, Agent Swarms, etc.)
-- Workflow orchestration studies (ReWOO, LLM Compiler, etc.)
-- Reliability and production AI systems literature
-- Cognitive architectures and reasoning frameworks
+This library is grounded in extensive research and resources, with 168 references including:
+- Academic papers (32+ arxiv publications)
+- Tools and frameworks (LangChain, AutoGen, CrewAI, etc.)
+- Documentation and guides (OpenAI, Anthropic, etc.)
+- Benchmarks and evaluation platforms
 
-Each pattern includes 5-10 relevant academic citations for deeper exploration.
+See [REFERENCE_MATERIALS.md](./REFERENCE_MATERIALS.md) for the complete list.
+
+## 🔗 Related Resources
+
+- [Pattern Groups Index](./pattern-groups/README.md) - Start here for decision guides
+- [Patterns Index](./patterns/README.md) - Complete reference of all patterns
+- [Systems Layer](./systems/README.md) - Tier-2 architecture and composition patterns
+- [Reference Materials](./REFERENCE_MATERIALS.md) - Complete list of 168 papers, tools, and resources
+- [GETTING_STARTED.md](./GETTING_STARTED.md) - Getting started guide
 
 ---
 *From [Yashodhan Kholgade](https://github.com/kholgade/agentic_ai_patterns_reference) (2026)*

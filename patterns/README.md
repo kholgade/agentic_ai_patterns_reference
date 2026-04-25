@@ -210,6 +210,9 @@ See **[../README.md](../README.md)** for:
 - Use case mapping
 - How to navigate the library
 
+### Reference Materials
+- **[REFERENCE_MATERIALS.md](../REFERENCE_MATERIALS.md)** - Complete list of 168 papers, tools, and resources
+
 ---
 
 ## 📖 Each Pattern Includes
@@ -245,7 +248,7 @@ Complexity Distribution:
 ├── Emerging (newer, experimental): 6 patterns
 └── Advanced (specialized, complex): 4+ patterns
 
-Academic References: 500+ peer-reviewed papers
+Academic References: 32+ arxiv papers, 130+ tools/docs/benchmarks (see [../../REFERENCE_MATERIALS.md](../../REFERENCE_MATERIALS.md))
 Implementation Examples: Python + JavaScript for each pattern
 ```
 

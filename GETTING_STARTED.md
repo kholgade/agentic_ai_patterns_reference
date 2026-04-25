@@ -31,7 +31,7 @@ Each pattern includes **5-10 academic references** from:
 - **Generative Agents** (Park et al., 2023)
 - **Chain-of-Thought Prompting** (Wei et al., 2022)
 - **ReAct** (Yao et al., 2023)
-- And 500+ more peer-reviewed papers
+- And 160+ more references (papers, tools, benchmarks)
 
 Open any pattern `README.md` to find academic references at the bottom.
 
