@@ -4,6 +4,23 @@
 
 This library provides battle-tested patterns that address the full lifecycle of agentic AI development—from core reasoning strategies to multi-agent coordination, workflow orchestration, knowledge integration, safety mechanisms, and operational reliability.
 
+## 📌 Page Content Index
+
+- [What This Library Offers](#-what-this-library-offers)
+- [Quick Navigation](#-quick-navigation)
+- [Pattern Groups & Comparisons](#-pattern-groups--comparisons)
+- [Model Maturity & Capability Matrix](#-model-maturity--capability-matrix)
+- [Categories Overview](#categories-overview)
+- [All 60 Patterns by Category](#-all-60-patterns-by-category)
+- [Detailed Pattern Briefs](#-detailed-pattern-briefs)
+- [How to Use This Library](#-how-to-use-this-library)
+- [Library Statistics](#-library-statistics)
+- [What You'll Find in Each Pattern](#-what-youll-find-in-each-pattern)
+- [Academic Foundation](#-academic-foundation)
+- [Getting Started (Separate Page)](./GETTING_STARTED.md)
+- [Pattern Groups Index](./pattern-groups/README.md)
+- [Patterns Index](./patterns/README.md)
+
 ## 🎯 What This Library Offers
 
 - **60+ Production Patterns**: Proven design patterns for LLM-powered systems
@@ -13,29 +30,9 @@ This library provides battle-tested patterns that address the full lifecycle of 
 - **Multiple Implementations**: Python code examples and JavaScript/TypeScript usage
 - **Complete Explanations**: ASCII diagrams, detailed use cases, tradeoff analysis
 
-## 📖 Why This Library Matters
+## 🚀 Getting Started
 
-Building robust agentic AI systems is complex. You need to:
-- Understand **reasoning patterns** (Chain-of-Thought, ReAct, Tree-of-Thoughts)
-- Design **multi-agent architectures** (Supervisor, Swarm, Hierarchical Teams)
-- Handle **workflow orchestration** (Prompt Chaining, Router, Orchestrator Workers)
-- Integrate **knowledge systems** (RAG, Self-RAG, Graph RAG)
-- Ensure **safety and quality** (Gates, Guardrails, Human-in-Loop)
-- Maintain **reliability** (Retry strategies, Circuit Breakers, Caching)
-
-This library consolidates all of this into accessible, well-documented patterns.
-
----
-
-## 🗂️ Table of Contents
-
-- [Quick Navigation](#quick-navigation)
-- [Pattern Groups & Comparisons](#pattern-groups--comparisons)
-- [Model Maturity & Capability Matrix](#model-maturity--capability-matrix)
-- [Categories Overview](#categories-overview)
-- [All 60 Patterns](#all-60-patterns)
-- [Getting Started](#getting-started)
-- [How to Use This Library](#how-to-use-this-library)
+Getting started content has moved to [GETTING_STARTED.md](./GETTING_STARTED.md).
 
 ---
 
@@ -353,42 +350,77 @@ Different patterns require different model capabilities. This **4-quadrant matri
 
 ---
 
-## 🚀 Getting Started
+## 💻 How to Use This Library
 
-### I'm New to Agentic AI. Where Do I Start?
+### Option 1: Browse Patterns Online
 
-1. **Read the [Quick Navigation](#quick-navigation) section** above for pattern groups
-2. **Start with foundational patterns**:
-   - [Chain of Thought](./patterns/chain-of-thought/README.md) - Learn reasoning
-   - [Tool Use](./patterns/tool-use/README.md) - Add capabilities
-   - [Prompt Chaining](./patterns/prompt-chaining/README.md) - Build pipelines
-   - [Router Pattern](./patterns/router-pattern/README.md) - Route requests
+Each pattern has a **README.md** with:
+- ✅ Detailed explanation of what it does
+- ✅ ASCII diagrams showing the architecture
+- ✅ Real-world examples
+- ✅ When to use (and when NOT to use)
+- ✅ Academic references (5-10 papers)
 
-3. **Pick a use case and follow the pattern links**:
-   - **"I need to answer questions"** → RAG patterns → Basic RAG → Advanced RAG
-   - **"I need multiple agents"** → [Supervisor Pattern](./patterns/supervisor-pattern/README.md) or [Agent Swarm](./patterns/agent-swarm/README.md)
-   - **"I need workflows"** → Prompt Chaining → Orchestrator Workers
-   - **"I need decision-making"** → [Debate Pattern](./patterns/debate-pattern/README.md)
+**Example**: To understand Chain-of-Thought:
+```
+./patterns/chain-of-thought/
+├── README.md          ← Start here for explanation
+├── code.py            ← Python implementation
+└── example.js         ← JavaScript usage
+```
 
-### I'm Choosing Between Similar Patterns
+### Option 2: Review Pattern Groups & Comparisons
 
-Go to **[Pattern Groups](./pattern-groups/INDEX.md)** for detailed comparisons:
-- Which is better: Supervisor vs Orchestrator vs Hierarchical?
-- When to use Judge vs Evaluator-Optimizer?
-- Debate vs Swarm - what's the difference?
+For patterns that are similar:
+```bash
+# Navigate to pattern groups
+./pattern-groups/
+├── evaluation-loop/           # Judge vs Evaluator-Optimizer
+├── task-delegation/           # Orchestrator vs Supervisor vs Hierarchical
+├── sequential-processing/     # Chaining vs Round-Robin
+├── request-distribution/      # Router vs Orchestrator
+├── debate-consensus/          # Debate vs Swarm
+├── workflow-gates/            # Gate vs Human-in-Loop
+└── INDEX.md                   # Start here for decision guide
+```
 
-Each pattern group has side-by-side comparisons, decision trees, and code examples.
+Each group has:
+- **Side-by-side comparison tables**
+- **Decision trees** ("should I use A or B?")
+- **Tradeoff analysis**
+- **Code examples**
+- **Anti-patterns** (when NOT to use)
 
-### I Want to Learn Academic Background
+### Option 3: Find by Use Case
 
-Each pattern includes **5-10 academic references** from:
-- **AI Safety via Debate** (Irving et al., 2018)
-- **Generative Agents** (Park et al., 2023)
-- **Chain-of-Thought Prompting** (Wei et al., 2022)
-- **ReAct** (Yao et al., 2023)
-- And 500+ more peer-reviewed papers
+What do you want to build?
 
-👉 Open any pattern README.md to find academic references at the bottom.
+| Goal | Patterns | Start Here |
+|------|----------|-----------|
+| Answer questions from documents | RAG | [Basic RAG](./patterns/basic-rag/README.md) → [Advanced RAG](./patterns/advanced-rag/README.md) |
+| Multi-agent team | Collaboration | [Supervisor](./patterns/supervisor-pattern/README.md) or [Hierarchical Team](./patterns/hierarchical-team/README.md) |
+| Complex workflows | Orchestration | [Prompt Chaining](./patterns/prompt-chaining/README.md) → [Orchestrator](./patterns/orchestrator-workers/README.md) |
+| Multi-step reasoning | Reasoning | [Chain-of-Thought](./patterns/chain-of-thought/README.md) → [ReAct](./patterns/react/README.md) |
+| Reliable production | Operational | [Retry Backoff](./patterns/retry-backoff/README.md) + [Circuit Breaker](./patterns/circuit-breaker/README.md) + [Observability](./patterns/observability-tracing/README.md) |
+| Safe AI systems | Safety | [Guardrails](./patterns/guardrails-pattern/README.md) + [Gate Checkpoint](./patterns/gate-checkpoint/README.md) + [Human-in-Loop](./patterns/human-in-the-loop/README.md) |
+
+### Option 4: Import Code Examples
+
+Each pattern includes Python and JavaScript implementations:
+
+```python
+# Python
+from patterns.chain_of_thought import ChainOfThought
+cot = ChainOfThought()
+result = cot.execute("What is 23 * 47?")
+```
+
+```javascript
+// JavaScript/TypeScript
+import { ChainOfThought } from './patterns/chain-of-thought/example.js';
+const cot = new ChainOfThought();
+const result = await cot.execute("What is 23 * 47?");
+```
 
 ---
 
@@ -732,76 +764,23 @@ Each pattern includes **5-10 academic references** from:
 
 ---
 
-## 💻 How to Use This Library
+## 🔍 What You'll Find in Each Pattern
 
-### Option 1: Browse Patterns Online
+Every pattern folder contains:
 
-Each pattern has a **README.md** with:
-- ✅ Detailed explanation of what it does
-- ✅ ASCII diagrams showing the architecture
-- ✅ Real-world examples
-- ✅ When to use (and when NOT to use)
-- ✅ Academic references (5-10 papers)
-
-**Example**: To understand Chain-of-Thought:
 ```
-./patterns/chain-of-thought/
-├── README.md          ← Start here for explanation
-├── code.py            ← Python implementation
-└── example.js         ← JavaScript usage
-```
-
-### Option 2: Review Pattern Groups & Comparisons
-
-For patterns that are similar:
-```bash
-# Navigate to pattern groups
-./pattern-groups/
-├── evaluation-loop/           # Judge vs Evaluator-Optimizer
-├── task-delegation/           # Orchestrator vs Supervisor vs Hierarchical
-├── sequential-processing/     # Chaining vs Round-Robin
-├── request-distribution/      # Router vs Orchestrator
-├── debate-consensus/          # Debate vs Swarm
-├── workflow-gates/            # Gate vs Human-in-Loop
-└── INDEX.md                   # Start here for decision guide
-```
-
-Each group has:
-- **Side-by-side comparison tables**
-- **Decision trees** ("should I use A or B?")
-- **Tradeoff analysis**
-- **Code examples**
-- **Anti-patterns** (when NOT to use)
-
-### Option 3: Find by Use Case
-
-What do you want to build?
-
-| Goal | Patterns | Start Here |
-|------|----------|-----------|
-| Answer questions from documents | RAG | [Basic RAG](./patterns/basic-rag/README.md) → [Advanced RAG](./patterns/advanced-rag/README.md) |
-| Multi-agent team | Collaboration | [Supervisor](./patterns/supervisor-pattern/README.md) or [Hierarchical Team](./patterns/hierarchical-team/README.md) |
-| Complex workflows | Orchestration | [Prompt Chaining](./patterns/prompt-chaining/README.md) → [Orchestrator](./patterns/orchestrator-workers/README.md) |
-| Multi-step reasoning | Reasoning | [Chain-of-Thought](./patterns/chain-of-thought/README.md) → [ReAct](./patterns/react/README.md) |
-| Reliable production | Operational | [Retry Backoff](./patterns/retry-backoff/README.md) + [Circuit Breaker](./patterns/circuit-breaker/README.md) + [Observability](./patterns/observability-tracing/README.md) |
-| Safe AI systems | Safety | [Guardrails](./patterns/guardrails-pattern/README.md) + [Gate Checkpoint](./patterns/gate-checkpoint/README.md) + [Human-in-Loop](./patterns/human-in-the-loop/README.md) |
-
-### Option 4: Import Code Examples
-
-Each pattern includes Python and JavaScript implementations:
-
-```python
-# Python
-from patterns.chain_of_thought import ChainOfThought
-cot = ChainOfThought()
-result = cot.execute("What is 23 * 47?")
-```
-
-```javascript
-// JavaScript/TypeScript
-import { ChainOfThought } from './patterns/chain-of-thought/example.js';
-const cot = new ChainOfThought();
-const result = await cot.execute("What is 23 * 47?");
+pattern-name/
+├── README.md                          # Complete explanation
+│   ├── What it does
+│   ├── When to use (and when NOT to)
+│   ├── ASCII diagrams
+│   ├── Real-world examples
+│   ├── 5-10 academic references
+│   └── Related links
+│
+├── code.py                            # Python implementation
+│
+└── example.js                         # JavaScript/TypeScript example
 ```
 
 ---
@@ -831,49 +810,5 @@ Usage Distribution:
 ```
 
 ---
-
-## 🔍 What You'll Find in Each Pattern
-
-Every pattern folder contains:
-
-```
-pattern-name/
-├── README.md                          # Complete explanation
-│   ├── What it does
-│   ├── When to use (and when NOT to)
-│   ├── ASCII diagrams
-│   ├── Real-world examples
-│   ├── 5-10 academic references
-│   └── Related links
-│
-├── code.py                            # Python implementation
-│
-└── example.js                         # JavaScript/TypeScript example
-```
-
----
-
-## 📚 Academic Foundation
-
-This library is grounded in peer-reviewed research:
-
-**Key Foundational Papers**:
-- Irving et al. (2018) - AI Safety via Debate
-- Wei et al. (2022) - Chain-of-Thought Prompting
-- Yao et al. (2023) - ReAct: Reasoning + Acting
-- Park et al. (2023) - Generative Agents
-- Wang et al. (2024) - Survey on LLM-based Autonomous Agents
-
-**Academic Coverage**:
-- Multi-agent systems (agent coordination, emergent behavior)
-- AI safety (alignment, verification, guardrails)
-- Retrieval systems (RAG, knowledge graphs)
-- Workflow orchestration (task decomposition, scheduling)
-- Operational reliability (failure handling, monitoring)
-
-Open any pattern README to find complete academic references.
-
----
-
 
 From [Yashodhan Kholgade](https://github.com/kholgade/agentic_ai_patterns_reference) (2026)
