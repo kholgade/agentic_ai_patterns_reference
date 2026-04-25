@@ -85,31 +85,28 @@ Different patterns require different model capabilities. This **4-quadrant matri
 | Category | Count | Description | Key Use Cases |
 |----------|-------|-------------|---|
 | **Core Reasoning** | 10 | Step-by-step reasoning strategies for complex problem solving | Math, logic, analysis, decision-making |
-| **Agent Architecture** | 8 | Core agent components: tools, memory, state management | Building robust individual agents |
-| **Multi-Agent Collaboration** | 7 | Patterns for multiple agents working together | Teams, swarms, hierarchies, debates |
-| **Workflow Orchestration** | 9 | Orchestrating multi-step processes and intelligent routing | Pipelines, task distribution, approval flows |
+| **Agent Architecture** | 11 | Core agent components: tools, memory, state management, planning | Building robust individual agents |
+| **Multi-Agent Collaboration** | 8 | Patterns for multiple agents working together | Teams, swarms, hierarchies, debates |
+| **Workflow Orchestration** | 11 | Orchestrating multi-step processes and intelligent routing | Pipelines, task distribution, approval flows |
 | **RAG & Knowledge Integration** | 6 | Retrieval-augmented generation and knowledge systems | Q&A, document search, context grounding |
-| **Output & Safety** | 5 | Structured outputs, validation, and safety guardrails | Data extraction, compliance, safety |
-| **Security & Access Control** | 5 | Prompt injection defense, tool permissioning, secrets, sandboxing, audit | Security hardening, compliance, threat prevention |
-| **Operational Reliability** | 8 | Reliability, cost optimization, caching, observability | Production systems, monitoring, resilience |
+| **Output & Safety** | 6 | Structured outputs, validation, and safety guardrails | Data extraction, compliance, safety |
+| **Security & Access Control** | 9 | Prompt injection defense, tool permissioning, secrets, sandboxing, audit | Security hardening, compliance, threat prevention |
+| **Cost & Efficiency** | 4 | Model routing, caching, context optimization | Cost reduction, latency optimization |
+| **Operational Reliability** | 10 | Reliability, cost optimization, caching, observability | Production systems, monitoring, resilience |
 | **Advanced Techniques** | 7 | Meta-prompting, self-improvement, simulated environments | Optimization, learning, experimentation |
 
 ## 📋 Pattern Directory Structure
 
-All 65+ patterns are organized in the **[patterns/](./patterns/)** directory by category:
+All 80+ patterns are organized in the **[patterns/](./patterns/)** directory by category:
 - Core Reasoning Patterns
-- Agent Architecture Patterns  
-- Multi-Agent Collaboration Patterns
+- Agent Architecture Patterns (includes Planner-Worker Separation, Plan-Then-Execute)
+- Multi-Agent Collaboration Patterns (includes Sub-Agent Spawning)
 - Workflow Orchestration Patterns
 - RAG & Knowledge Integration Patterns
 - Output & Safety Patterns
-- **Security & Access Control Patterns** (NEW)
-  - Prompt Injection Defense
-  - Tool Permissioning
-  - Secret Handling
-  - Sandboxing
-  - Audit Logging
-- Operational & Reliability Patterns
+- Security & Access Control Patterns (includes Dual LLM, PII Tokenization, Policy-Gated Proxy)
+- Cost & Efficiency Patterns (NEW - Budget Routing, Action Caching, Context Compaction)
+- Operational Reliability Patterns (includes Circuit Breaker, Observability)
 - Advanced Techniques
 
 Each pattern folder contains a detailed README with implementation examples, use cases, and academic references.

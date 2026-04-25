@@ -60,7 +60,6 @@ Use this pattern when processing multiple independent inputs that require the sa
 ## Reference Links
 
 - [LangChain Parallel Map](https://python.langchain.com/docs/modules/chains/how_to/parallel)
-- [Async LLM Processing](https://github.com/anyscale/academy/tree/main/llm-engineering/async-processing)
 - [MapReduce Pattern Guide](https://developer.mimecast.com/docs/map-reduce-pattern-llm)
 
 

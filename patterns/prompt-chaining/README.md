@@ -85,7 +85,6 @@ Use this pattern when dealing with multi-step transformations where each stage p
 
 - [LangChain Sequential Chains](https://python.langchain.com/docs/modules/chains/how_to/sequential_chains)
 - [Prompt chaining best practices](https://arxiv.org/abs/2308.06592)
-- [Building LLM Pipelines](https://github.com/ConstellationLab/llm-pipelines)
 
 
 From [Yashodhan Kholgade](https://github.com/kholgade/agentic_ai_patterns_reference) (2026)

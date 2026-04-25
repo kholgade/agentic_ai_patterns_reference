@@ -80,7 +80,6 @@ Before executing a potentially destructive operation like deleting data, agent a
 
 - [Active Learning: A Survey](https://link.springer.com/article/10.1007/s10994-023-06521-6) - Comprehensive survey on active learning in ML
 - [Large Language Models for Human-AI Collaboration](https://arxiv.org/abs/2304.01960) - Research on LLM collaboration patterns
-- [Human-in-the-Loop Learning](https://www.interpretable-ai.com/education/human-in-the-loop/) - Interactive ML systems
 
 
 From [Yashodhan Kholgade](https://github.com/kholgade/agentic_ai_patterns_reference) (2026)

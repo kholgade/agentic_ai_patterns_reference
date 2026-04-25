@@ -100,9 +100,7 @@ Response: "The paper employed a mixed-methods approach consisting of
 
 - [LangChain RAG Documentation](https://python.langchain.com/docs/tutorials/rag/)
 - [Pinecone RAG Architecture](https://www.pinecone.io/learn/retrieval-augmented-generation/)
-- [OpenAI RAG Best Practices](https://platform.openai.com/docs/guides/rag)
 - [Chroma Vector Database](https://docs.trychroma.com/)
-- [HuggingFace Embeddings Guide](https://huggingface.co/inference-endpoints/embeddings)
 
 
 From [Yashodhan Kholgade](https://github.com/kholgade/agentic_ai_patterns_reference) (2026)

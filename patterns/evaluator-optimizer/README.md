@@ -95,7 +95,6 @@ Use this pattern when output quality must meet specific criteria, when feedback 
 
 - [LangChain Reflexion](https://python.langchain.com/docs/modules/agents/how_to/reflexion)
 - [Self-Correction in LLMs](https://arxiv.org/abs/2308.08155)
-- [Iterative Refinement Patterns](https://github.com/TramilyAI/refinement-patterns)
 
 
 From [Yashodhan Kholgade](https://github.com/kholgade/agentic_ai_patterns_reference) (2026)

@@ -129,10 +129,8 @@ Reflection: Retrieved conflicting studies; marked one as unsupported.
 ## References
 
 - [Self-RAG Paper (Asai et al., 2024)](https://arxiv.org/abs/2310.11511)
-- [Together AI Self-RAG Models](https://together.ai/blog/self-rag)
 - [HuggingFace Self-RAG Implementation](https://huggingface.co/docs/transformers/en/generation_strategies)
 - [Reflection Tokens in LLM Generation](https://arxiv.org/abs/2310.11511)
-- [Self-RAG vs Standard RAG Benchmark](https://github.com/Arize-ai/self-rag)
 
 
 From [Yashodhan Kholgade](https://github.com/kholgade/agentic_ai_patterns_reference) (2026)

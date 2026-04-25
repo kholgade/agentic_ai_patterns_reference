@@ -18,10 +18,8 @@ For prompt optimization specifically, techniques include testing different instr
 
 ## Reference Links
 
-- [A/B Testing for LLMs - OpenAI](https://openai.com/research/ab-testing-llms) - Research on LLM experimentation
 - [Prompt Engineering guide](https://www.promptingguide.ai/) - Prompt optimization techniques
 - [LangChain Prompt Templates](https://python.langchain.com/docs/modules/prompts/) - Template examples
-- [Statistical Significance for ML](https://machinelearningmastery.com/statistical-significance-tests/) - Significance testing
 - [Optuna - Hyperparameter Optimization](https://optuna.org/) - Bayesian optimization library
 
 

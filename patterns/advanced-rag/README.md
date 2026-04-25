@@ -132,7 +132,6 @@ Response: "Long-term aspirin use (studies: 2019-2024) shows:
 - [Advanced RAG Techniques](https://python.langchain.com/docs/tutorials/advanced_rag/)
 - [Hybrid Search with RRF](https://www.pinecone.io/learn/hybrid-search-score-reciprocal-rank-fusion/)
 - [BGE Reranker Model](https://huggingface.co/BAAI/bge-reranker-v2-m3)
-- [Query Decomposition Guide](https://docs.springboard.com/retrieval/query-decomposition)
 - [Cohere Reranking API](https://docs.cohere.com/docs/reranking)
 
 

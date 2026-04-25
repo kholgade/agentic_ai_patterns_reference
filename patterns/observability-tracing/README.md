@@ -19,7 +19,6 @@ Modern implementations integrate with established observability platforms (OpenT
 ## Reference Links
 
 - [OpenTelemetry Python](https://opentelemetry.io/docs/instrumentation/python/) - Official OTEL Python docs
-- [LangSmith Tracing](https://docs.langchain.com/docs/tracing) - LangChain observability
 - [OpenTelemetry JS](https://opentelemetry.io/docs/instrumentation/js/) - JavaScript instrumentation
 - [Jaeger Tracing](https://www.jaegertracing.io/) - Distributed tracing UI
 - [Datadog APM](https://docs.datadoghq.com/tracing/) - Commercial APM with LLM tracing

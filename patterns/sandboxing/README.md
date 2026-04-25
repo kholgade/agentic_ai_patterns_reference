@@ -464,7 +464,6 @@ class FileSystemSandbox:
 ## References
 
 - [Docker Security Best Practices](https://docs.docker.com/engine/security/)
-- [Playwright Security](https://playwright.dev/docs/security)
 - [gVisor Container Sandbox](https://gvisor.dev/)
 - [Firecracker MicroVMs](https://firecracker-microvm.github.io/)
 - [OWASP Code Injection Prevention](https://cheatsheetseries.owasp.org/cheatsheets/Injection_Prevention_Cheat_Sheet.html)

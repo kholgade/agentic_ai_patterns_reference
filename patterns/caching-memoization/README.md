@@ -16,8 +16,6 @@ The key challenge with LLM caching is ensuring that semantically equivalent quer
 
 ## Reference Links
 
-- [Semantic Cache for LLMs](https://github.com/facebookresearch/llmcache) - Facebook research on semantic caching
-- [Redis Cache Documentation](https://redis.io/docs/managing/patterns/caching/) - Distributed caching best practices
 - [Vector Similarity Search](https://www.pinecone.io/learn/chunking-nlp/) - Semantic search techniques
 - [GPTCache](https://github.com/gptcache/G PTCache) - Open-source LLM caching library
 

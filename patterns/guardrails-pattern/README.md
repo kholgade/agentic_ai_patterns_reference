@@ -182,9 +182,6 @@ def health_assistant(user_input: str) -> str:
 
 - [Guardrails AI Library](https://github.com/guardrails-ai/guardrails)
 - [NVIDIA NeMo Guardrails](https://github.com/NVIDIA/NeMo-Guardrails)
-- [Llama Guard](https://ai.meta.com/llama/)
-- [AI Safety Fundamentals](https://course.eclai.org/)
-- [OWASP AI Security Guidelines](https://owasp.org/www-project-ai-security/)
 
 
 From [Yashodhan Kholgade](https://github.com/kholgade/agentic_ai_patterns_reference) (2026)

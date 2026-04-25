@@ -103,7 +103,6 @@ Use this pattern when your application handles multiple distinct query types tha
 ## Reference Links
 
 - [LangChain Router Chain](https://python.langchain.com/docs/modules/chains/how_to/router)
-- [Intent Classification Methods](https://docs.cohere.com/docs/intent-classification)
 - [LLM Routing Best Practices](https://www.anyscale.com/blog/optimizing-llm-routing)
 
 

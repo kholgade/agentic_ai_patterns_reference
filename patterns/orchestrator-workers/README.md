@@ -117,7 +117,6 @@ Use this pattern when handling complex requests that benefit from decomposition 
 
 - [LangChain Multi-Agent Orchestration](https://python.langchain.com/docs/modules/agents/how_to/multi-agent)
 - [CrewAI Orchestrator](https://docs.crewai.com/)
-- [AutoGen Group Chat](https://microsoft.github.io/autogen/docs/API-reference/Core/GroupChat)
 
 
 From [Yashodhan Kholgade](https://github.com/kholgade/agentic_ai_patterns_reference) (2026)

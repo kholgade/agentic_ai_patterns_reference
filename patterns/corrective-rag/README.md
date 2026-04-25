@@ -142,7 +142,6 @@ Response: "The EU AI Act passed final vote in March 2024, with full
 
 - [Corrective RAG Paper (Yan et al., 2024)](https://arxiv.org/abs/2401.15884)
 - [LangChain RAG with Evaluation](https://python.langchain.com/docs/tutorials/rag/#custom-retrieval-and-reranking)
-- [Self-RAG vs Corrective RAG](https://github.com/your-tech/self-rag)
 - [Tavily Search API](https://tavily.com)
 - [Evaluation Metrics for RAG](https://docs.ragas.io/)
 

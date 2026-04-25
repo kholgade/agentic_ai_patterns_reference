@@ -86,7 +86,6 @@ Use this pattern when workflows require quality gates before progression, when o
 
 ## Reference Links
 
-- [Stage-Gate Processes](https://en.wikipedia.org/wiki/Stage-gate)
 - [LangChain Sequential Chains with Conditionals](https://python.langchain.com/docs/how_to/conditionals)
 - [Guardrails for LLMs](https://github.com/guardrails-ai/guardrails)
 

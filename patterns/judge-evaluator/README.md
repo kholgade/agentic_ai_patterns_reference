@@ -175,7 +175,6 @@ Rejected: Add regional breakdown analysis
 
 - [LLM as Judge](https://arxiv.org/abs/2306.05685)
 - [LangChain Judge Evaluator](https://python.langchain.com/docs/guides/evaluation/)
-- [AutoGen Judge](https://microsoft.github.io/autogen/docs/)
 
 
 From [Yashodhan Kholgade](https://github.com/kholgade/agentic_ai_patterns_reference) (2026)

@@ -294,9 +294,6 @@ class InjectionDetector:
 
 ## References
 
-- [Prompt Injection Primer](https://learnpromptinjection.org/) - Simon Willison
-- [OWASP Prompt Injection Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
 - [Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165) - GPT-3 paper (security implications)
-- [The AI Attack Surface Map v1.0](https://danielmiessler.com/blog/the-ai-attack-surface-map-v1-0/)
 - [Prompt Injection Attacks Against LLMs](https://arxiv.org/abs/2307.05846)
 - [Injection Hardening in Production LLM Systems](https://arxiv.org/abs/2401.06687)

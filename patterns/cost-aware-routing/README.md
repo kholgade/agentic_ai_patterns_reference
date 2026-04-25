@@ -54,11 +54,9 @@ This pattern is essential for production AI systems operating under budget const
 
 ## Reference Links
 
-- [OpenAI Pricing](https://openai.com/pricing) - Model pricing reference
 - [Anthropic Pricing](https://www.anthropic.com/pricing) - Claude model pricing
 - [LLM Router Research](https://arxiv.org/abs/2305.13827) - Academic paper on LLM routing
 - [sGlang Router](https://github.com/sgl-project/sglang) - Open-source LLM router
-- [LLM Platform Cost Optimization](https://benchmark.mosley.dev/) - Cost comparison benchmarks
 
 
 From [Yashodhan Kholgade](https://github.com/kholgade/agentic_ai_patterns_reference) (2026)

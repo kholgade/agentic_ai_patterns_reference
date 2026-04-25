@@ -89,7 +89,6 @@ Full database simulation for testing query generation, data manipulation, and sc
 ## Reference Links
 
 - [Gymnasium: API for Reinforcement Learning](https://gymnasium.farama.org/) - Standard environment interface
-- [Language Model Agents: Benchmark](https://agentbench.github.io/) - Comprehensive agent evaluation
 - [WebArena: Realistic Web Environment](https://webarena-arena.github.io/) - Web-based agent testing
 
 

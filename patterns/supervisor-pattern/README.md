@@ -159,7 +159,6 @@ Supervisor validates each stage before advancing to next
 ## Reference Links
 
 - [LangGraph Supervisor Pattern](https://python.langchain.com/docs/langgraph)
-- [AutoGen Supervisor](https://microsoft.github.io/autogen/docs/)
 - [CrewAI Manager Agent](https://docs.crewai.com/how-it-works/manager-agent)
 
 

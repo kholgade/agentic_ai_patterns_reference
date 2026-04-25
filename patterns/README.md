@@ -104,7 +104,7 @@ Retrieval-augmented generation and knowledge systems.
 
 ---
 
-### 6️⃣ Output & Safety Patterns (5)
+### 6️⃣ Output & Safety Patterns (6)
 
 Structured outputs, validation, and safety guardrails.
 
@@ -115,10 +115,11 @@ Structured outputs, validation, and safety guardrails.
 | [Guardrails Pattern](./guardrails-pattern/) | `guardrails-pattern/` | Input/output validation and filtering | Intermediate |
 | [Output Parsing](./output-parsing/) | `output-parsing/` | Structured data extraction | Foundational |
 | [Streaming with Interruptions](./streaming-interruptions/) | `streaming-interruptions/` | Real-time streaming with controls | Emerging |
+| [Output Verification Loop](./output-verification-loop/) | `output-verification-loop/` | Verify claims before acting | Intermediate |
 
 ---
 
-### 7️⃣ Security & Access Control Patterns (5)
+### 7️⃣ Security & Access Control Patterns (9)
 
 Security hardening, threat prevention, and compliance for agentic systems.
 
@@ -129,10 +130,25 @@ Security hardening, threat prevention, and compliance for agentic systems.
 | [Secret Handling](./secret-handling/) | `secret-handling/` | Secure credential management | Intermediate |
 | [Sandboxing](./sandboxing/) | `sandboxing/` | Isolated execution environments | Advanced |
 | [Audit Logging](./audit-logging/) | `audit-logging/` | Security event tracking and compliance | Intermediate |
+| [Dual LLM](./dual-llm/) | `dual-llm/` | Separate untrusted reading from privileged actions | Advanced |
+| [PII Tokenization](./pii-tokenization/) | `pii-tokenization/` | Auto-redact sensitive data before LLM | Intermediate |
+| [Policy-Gated Tool Proxy](./policy-gated-proxy/) | `policy-gated-proxy/` | Policy enforcement for tool calls | Advanced |
 
 ---
 
-### 8️⃣ Operational & Reliability Patterns (8)
+### 8️⃣ Cost & Efficiency Patterns (4)
+
+Cost optimization and performance improvements.
+
+| Pattern | Folder | Purpose | Complexity |
+|---------|--------|---------|------------|
+| [Budget-Aware Model Routing](./budget-aware-routing/) | `budget-aware-routing/` | Route to appropriate model by task | Intermediate |
+| [Action Caching & Replay](./action-caching/) | `action-caching/` | Cache tool results to avoid redundant calls | Foundational |
+| [Context Auto-Compaction](./context-auto-compaction/) | `context-auto-compaction/` | Auto-summarize context before overflow | Intermediate |
+
+---
+
+### 9️⃣ Operational Reliability Patterns (10)
 
 Production reliability, cost optimization, monitoring.
 
@@ -149,7 +165,38 @@ Production reliability, cost optimization, monitoring.
 
 ---
 
-### 9️⃣ Advanced Techniques (7)
+### 9️⃣ Operational Reliability Patterns (10)
+
+Production reliability, monitoring, and resilience.
+
+| Pattern | Folder | Purpose | Complexity |
+|---------|--------|---------|------------|
+| [Retry Backoff](./retry-backoff/) | `retry-backoff/` | Exponential backoff on failures | Foundational |
+| [Circuit Breaker](./circuit-breaker/) | `circuit-breaker/` | Failure isolation and fast-fail | Intermediate |
+| [Cost-Aware Routing](./cost-aware-routing/) | `cost-aware-routing/` | Model selection by complexity | Emerging |
+| [Caching Memoization](./caching-memoization/) | `caching-memoization/` | Response caching for duplicates | Foundational |
+| [Observability Tracing](./observability-tracing/) | `observability-tracing/` | Built-in logging and debugging | Intermediate |
+| [A/B Testing](./ab-testing/) | `ab-testing/` | Prompt/model experimentation | Mature |
+| [Speculative Decoding](./speculative-decoding/) | `speculative-decoding/` | Draft-verify token generation for low latency | Advanced |
+| [Fallback Cascade](./fallback-cascade/) | `fallback-cascade/` | Ordered graceful degradation across providers/models | Intermediate |
+| [Agent Circuit Breaker](./agent-circuit-breaker/) | `agent-circuit-breaker/` | Track tool failures and temporarily disable | Intermediate |
+| [LLM Observability](./llm-observability/) | `llm-observability/` | Span-level tracing and metrics | Intermediate |
+
+---
+
+### 🔟 Agent Architecture Enhancements (3)
+
+Advanced agent design patterns.
+
+| Pattern | Folder | Purpose | Complexity |
+|---------|--------|---------|------------|
+| [Sub-Agent Spawning](./sub-agent-spawning/) | `sub-agent-spawning/` | Parallel task decomposition | Intermediate |
+| [Planner-Worker Separation](./planner-worker-separation/) | `planner-worker-separation/` | Separate planning from execution | Intermediate |
+| [Plan-Then-Execute](./plan-then-execute/) | `plan-then-execute/` | Locked plan before execution | Foundational |
+
+---
+
+### 1️⃣1️⃣ Advanced Techniques (7)
 
 Meta-prompting, self-improvement, simulated environments.
 

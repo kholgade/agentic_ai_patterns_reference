@@ -89,7 +89,6 @@ Use this pattern when outputs must meet compliance requirements, when human acco
 
 - [Human-in-the-Loop Machine Learning](https://www.manning.com/books/human-in-the-loop-machine-learning)
 - [LangChain Human-in-the-Loop](https://python.langchain.com/docs/how_to/human_in_the_loop/)
-- [HITL Best Practices](https://docs.humanita.ai/best-practices)
 
 
 From [Yashodhan Kholgade](https://github.com/kholgade/agentic_ai_patterns_reference) (2026)

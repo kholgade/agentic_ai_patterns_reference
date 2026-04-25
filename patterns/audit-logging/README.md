@@ -544,6 +544,3 @@ class AuditQueryEngine:
 
 - [NIST Audit and Accountability Guidelines](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)
 - [OWASP Logging Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
-- [PCI-DSS Logging Requirements](https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0_1.pdf)
-- [GDPR Audit Trail Requirements](https://gdpr.eu/accountability/)
-- [HIPAA Audit Controls](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html)
