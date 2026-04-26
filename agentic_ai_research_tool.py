@@ -15,6 +15,7 @@ import json
 import argparse
 import subprocess
 import hashlib
+import logging
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Optional, Dict, List, Any
@@ -37,6 +38,20 @@ try:
     HAS_OLLAMA = True
 except ImportError:
     HAS_OLLAMA = False
+
+
+def setup_logging(verbose: bool = False) -> None:
+    """Configure logging for background execution."""
+    log_level = logging.DEBUG if verbose else logging.INFO
+    log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    logging.basicConfig(
+        level=log_level,
+        format=log_format,
+        handlers=[
+            logging.FileHandler('research_tool.log'),
+            logging.StreamHandler()
+        ]
+    )
 
 
 class ResearchStep(Enum):
@@ -153,7 +168,7 @@ class Step1SearchAndCurate:
     def search_arxiv(self, keyword: str, days: int = 90) -> List[ResearchReference]:
         """Search arXiv for recent papers."""
         if not HAS_WEB_DEPS:
-            print("⚠️  Web dependencies not installed. Using mock data.")
+            logging.warning("  Web dependencies not installed. Using mock data.")
             return self._mock_arxiv_results(keyword)
 
         references = []
@@ -177,7 +192,7 @@ class Step1SearchAndCurate:
                         # This is simplified for demo
                         pass
         except Exception as e:
-            print(f"Error searching arXiv: {e}")
+            logging.debug(f"Error searching arXiv: {e}")
 
         return references if references else self._mock_arxiv_results(keyword)
 
@@ -257,24 +272,24 @@ class Step1SearchAndCurate:
 
     def run(self) -> List[ResearchReference]:
         """Execute Step 1: Search and curate."""
-        print("\n" + "="*70)
-        print("STEP 1: SEARCH & CURATE - Discovering Latest References")
-        print("="*70)
+        logging.info("\n" + "="*70)
+        logging.info("STEP 1: SEARCH & CURATE - Discovering Latest References")
+        logging.info("="*70)
 
         all_references = []
 
         for keyword in self.config.search_keywords:
-            print(f"\n🔍 Searching for: {keyword}")
+            logging.debug(f"\n🔍 Searching for: {keyword}")
             arxiv_results = self.search_arxiv(keyword)
             all_references.extend(arxiv_results)
-            print(f"   Found {len(arxiv_results)} papers on arXiv")
+            logging.debug(f"   Found {len(arxiv_results)} papers on arXiv")
 
             web_results = self.search_web(keyword)
             all_references.extend(web_results)
-            print(f"   Found {len(web_results)} web articles/blogs")
+            logging.debug(f"   Found {len(web_results)} web articles/blogs")
 
         curated = self.curate_references(all_references)
-        print(f"\n✅ Curated {len(curated)} references (deduplicated & ranked)")
+        logging.debug(f"\n✅ Curated {len(curated)} references (deduplicated & ranked)")
 
         return curated
 
@@ -289,7 +304,7 @@ class Step2Analyze:
     def analyze_with_ollama(self, reference: ResearchReference) -> Dict[str, Any]:
         """Analyze a reference using Ollama."""
         if not HAS_OLLAMA:
-            print("⚠️  Ollama not available. Using template-based analysis.")
+            logging.warning("  Ollama not available. Using template-based analysis.")
             return self._template_analysis(reference)
 
         try:
@@ -328,7 +343,7 @@ Format your response as JSON with keys: key_insights, concepts, relevance, patte
 
             return analysis
         except Exception as e:
-            print(f"Error analyzing with Ollama: {e}")
+            logging.debug(f"Error analyzing with Ollama: {e}")
             return self._template_analysis(reference)
 
     def _template_analysis(self, reference: ResearchReference) -> Dict[str, Any]:
@@ -346,22 +361,22 @@ Format your response as JSON with keys: key_insights, concepts, relevance, patte
 
     def run(self, references: List[ResearchReference]) -> Dict[str, Any]:
         """Execute Step 2: Analyze references."""
-        print("\n" + "="*70)
-        print("STEP 2: ANALYZE - Extracting Insights Using Ollama")
-        print("="*70)
-        print(f"Model: {self.model}")
+        logging.info("\n" + "="*70)
+        logging.info("STEP 2: ANALYZE - Extracting Insights Using Ollama")
+        logging.info("="*70)
+        logging.debug(f"Model: {self.model}")
 
         analyses = {}
 
         for i, ref in enumerate(references, 1):
-            print(f"\n📖 [{i}/{len(references)}] Analyzing: {ref.title[:50]}...")
+            logging.debug(f"\n📖 [{i}/{len(references)}] Analyzing: {ref.title[:50]}...")
             analysis = self.analyze_with_ollama(ref)
             analyses[ref.url] = {
                 "reference": asdict(ref),
                 "analysis": analysis
             }
 
-        print(f"\n✅ Analyzed {len(analyses)} references")
+        logging.debug(f"\n✅ Analyzed {len(analyses)} references")
         return analyses
 
 
@@ -388,7 +403,7 @@ class Step3MapPatterns:
                             "full_path": readme
                         }
                     except Exception as e:
-                        print(f"Error reading {pattern_dir.name}: {e}")
+                        logging.debug(f"Error reading {pattern_dir.name}: {e}")
 
         return patterns
 
@@ -416,12 +431,12 @@ class Step3MapPatterns:
 
     def run(self, analyses: Dict[str, Any]) -> List[PatternInsight]:
         """Execute Step 3: Map patterns."""
-        print("\n" + "="*70)
-        print("STEP 3: MAP PATTERNS - Comparing Against Existing Patterns")
-        print("="*70)
+        logging.info("\n" + "="*70)
+        logging.info("STEP 3: MAP PATTERNS - Comparing Against Existing Patterns")
+        logging.info("="*70)
 
         existing_patterns = self.load_existing_patterns()
-        print(f"Found {len(existing_patterns)} existing patterns")
+        logging.debug(f"Found {len(existing_patterns)} existing patterns")
 
         insights = []
 
@@ -440,7 +455,7 @@ class Step3MapPatterns:
                     )
                     insights.append(insight)
 
-        print(f"✅ Mapped {len(insights)} pattern insights")
+        logging.debug(f"✅ Mapped {len(insights)} pattern insights")
         return insights
 
 
@@ -492,18 +507,18 @@ class Step4Integrate:
     def run(self, analyses: Dict[str, Any],
             existing_insights: List[PatternInsight]) -> Dict[str, Any]:
         """Execute Step 4: Identify updates."""
-        print("\n" + "="*70)
-        print("STEP 4: INTEGRATE - Identifying Updates & New Patterns")
-        print("="*70)
+        logging.info("\n" + "="*70)
+        logging.info("STEP 4: INTEGRATE - Identifying Updates & New Patterns")
+        logging.info("="*70)
 
         new_patterns = self.identify_new_patterns(analyses, existing_insights)
         report = self.prepare_update_report(existing_insights, new_patterns)
 
-        print(f"📊 Integration Report:")
-        print(f"   - Pattern insights: {report['total_insights']}")
-        print(f"   - Updates identified: {len(report['pattern_updates'])}")
-        print(f"   - New patterns: {len(new_patterns)}")
-        print(f"\n✅ {report['summary']}")
+        logging.debug(f"📊 Integration Report:")
+        logging.debug(f"   - Pattern insights: {report['total_insights']}")
+        logging.debug(f"   - Updates identified: {len(report['pattern_updates'])}")
+        logging.debug(f"   - New patterns: {len(new_patterns)}")
+        logging.debug(f"\n✅ {report['summary']}")
 
         return report
 
@@ -561,7 +576,7 @@ Format as JSON with keys: supported, reasonable, hallucinations, confidence"""
 
             return verification
         except Exception as e:
-            print(f"Error verifying with Ollama: {e}")
+            logging.debug(f"Error verifying with Ollama: {e}")
             return self._template_verification(insight)
 
     def _template_verification(self, insight: PatternInsight) -> Dict[str, Any]:
@@ -577,10 +592,10 @@ Format as JSON with keys: supported, reasonable, hallucinations, confidence"""
     def run(self, insights: List[PatternInsight],
             analyses: Dict[str, Any]) -> Dict[str, Any]:
         """Execute Step 5: Verify insights."""
-        print("\n" + "="*70)
-        print("STEP 5: VERIFY - Grounding Check Using Ollama")
-        print("="*70)
-        print(f"Model: {self.model}")
+        logging.info("\n" + "="*70)
+        logging.info("STEP 5: VERIFY - Grounding Check Using Ollama")
+        logging.info("="*70)
+        logging.debug(f"Model: {self.model}")
 
         verification_results = {}
 
@@ -588,21 +603,21 @@ Format as JSON with keys: supported, reasonable, hallucinations, confidence"""
             if insight.references:
                 url = insight.references[0]
                 if url in analyses:
-                    print(f"\n✔️  [{i}/{len(insights)}] Verifying: {insight.pattern_name}...")
+                    logging.debug(f"\n✔️  [{i}/{len(insights)}] Verifying: {insight.pattern_name}...")
                     verification = self.verify_insight_with_ollama(insight, analyses[url])
                     verification_results[insight.pattern_name] = verification
 
                     # Print verification result
                     confidence = verification.get("confidence", 0.5)
                     status = "✅" if confidence > 0.7 else "⚠️ "
-                    print(f"   {status} Confidence: {confidence:.2f}")
+                    logging.debug(f"   {status} Confidence: {confidence:.2f}")
                     if verification.get("hallucinations"):
-                        print(f"   Note: {verification.get('hallucinations')}")
+                        logging.debug(f"   Note: {verification.get('hallucinations')}")
 
         # Summary
         high_confidence = sum(1 for v in verification_results.values()
                              if v.get("confidence", 0) > 0.7)
-        print(f"\n✅ Verification complete: {high_confidence}/{len(verification_results)} high confidence")
+        logging.debug(f"\n✅ Verification complete: {high_confidence}/{len(verification_results)} high confidence")
 
         return {
             "timestamp": datetime.now().isoformat(),
@@ -629,11 +644,11 @@ class ResearchSession:
         if steps is None:
             steps = [1, 2, 3, 4, 5]
 
-        print("\n" + "="*70)
-        print("🔬 AGENTIC AI RESEARCH TOOL - FULL PIPELINE")
-        print("="*70)
-        print(f"Session ID: {self.session_id}")
-        print(f"Running steps: {steps}")
+        logging.info("\n" + "="*70)
+        logging.info("🔬 AGENTIC AI RESEARCH TOOL - FULL PIPELINE")
+        logging.info("="*70)
+        logging.debug(f"Session ID: {self.session_id}")
+        logging.debug(f"Running steps: {steps}")
 
         # Step 1: Search & Curate
         references = None
@@ -698,19 +713,19 @@ class ResearchSession:
         output_file = self.config.research_dir / f"{self.session_id}.json"
         with open(output_file, "w") as f:
             json.dump(self.results, f, indent=2)
-        print(f"\n💾 Session saved to: {output_file}")
+        logging.debug(f"\n💾 Session saved to: {output_file}")
 
     def print_summary(self):
         """Print research summary."""
-        print("\n" + "="*70)
-        print("📋 RESEARCH SUMMARY")
-        print("="*70)
+        logging.info("\n" + "="*70)
+        logging.info("📋 RESEARCH SUMMARY")
+        logging.info("="*70)
 
         for step_num, step_data in self.results["steps"].items():
-            print(f"\nStep {step_num}: {step_data.get('status', 'unknown')}")
+            logging.debug(f"\nStep {step_num}: {step_data.get('status', 'unknown')}")
             for key, value in step_data.items():
                 if key != "status":
-                    print(f"  - {key}: {value}")
+                    logging.debug(f"  - {key}: {value}")
 
 
 def main():
@@ -755,11 +770,14 @@ Examples:
 
     args = parser.parse_args()
 
+    # Setup logging
+    setup_logging(args.verbose)
+
     # Validate repository path
     repo_path = Path(args.repo)
     if not (repo_path / "README.md").exists():
-        print(f"❌ Error: Repository not found at {repo_path}")
-        print("   Please provide path to agentic AI patterns repository")
+        logging.debug(f"❌ Error: Repository not found at {repo_path}")
+        logging.info("   Please provide path to agentic AI patterns repository")
         sys.exit(1)
 
     # Run research session
@@ -768,15 +786,15 @@ Examples:
         results = session.run_full_pipeline(args.steps)
         session.print_summary()
 
-        print("\n" + "="*70)
-        print("✅ RESEARCH TOOL COMPLETED SUCCESSFULLY")
-        print("="*70)
+        logging.info("\n" + "="*70)
+        logging.info(" RESEARCH TOOL COMPLETED SUCCESSFULLY")
+        logging.info("="*70)
 
     except KeyboardInterrupt:
-        print("\n\n⚠️  Research tool interrupted by user")
+        logging.info("\n\n⚠️  Research tool interrupted by user")
         sys.exit(0)
     except Exception as e:
-        print(f"\n❌ Error: {e}")
+        logging.debug(f"\n❌ Error: {e}")
         import traceback
         if args.verbose:
             traceback.print_exc()

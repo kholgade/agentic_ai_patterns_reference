@@ -12,6 +12,7 @@ This script helps apply research tool findings:
 
 import json
 import sys
+import logging
 from pathlib import Path
 from datetime import datetime
 from typing import Optional, Dict, List, Any
@@ -41,7 +42,7 @@ class ResearchIntegrator:
         insights = []
 
         if 5 not in session.get("steps", {}):
-            print("⚠️  No verification data (Step 5) in session")
+            logging.warning("  No verification data (Step 5) in session")
             return insights
 
         verifications = session["steps"][5].get("verifications", {})
@@ -271,20 +272,20 @@ Generated: {datetime.now().isoformat()}
 
     def run(self, session_file: str, output_dir: Optional[str] = None):
         """Run integration assistant."""
-        print("\n" + "="*70)
-        print("🔧 RESEARCH INTEGRATION HELPER")
-        print("="*70)
+        logging.debug("\n" + "="*70)
+        logging.info(" RESEARCH INTEGRATION HELPER")
+        logging.debug("="*70)
 
         # Load session
-        print(f"\n📂 Loading session: {session_file}")
+        logging.debug(f"\n📂 Loading session: {session_file}")
         try:
             session = self.load_session(session_file)
         except FileNotFoundError as e:
-            print(f"❌ Error: {e}")
+            logging.debug(f"❌ Error: {e}")
             return
 
         # Generate report
-        print("\n📊 Generating integration report...")
+        logging.debug("\n📊 Generating integration report...")
         report = self.generate_pattern_update_report(session)
 
         # Output path
@@ -295,20 +296,20 @@ Generated: {datetime.now().isoformat()}
         report_file = output_path / f"report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
         with open(report_file, "w") as f:
             json.dump(report, f, indent=2)
-        print(f"✅ Report saved: {report_file}")
+        logging.debug(f"✅ Report saved: {report_file}")
 
         # Generate checklist
-        print("\n📋 Generating integration checklist...")
+        logging.debug("\n📋 Generating integration checklist...")
         checklist = self.create_update_checklist(report)
         checklist_file = output_path / f"checklist_{datetime.now().strftime('%Y%m%d_%H%M%S')}.md"
         with open(checklist_file, "w") as f:
             f.write(checklist)
-        print(f"✅ Checklist saved: {checklist_file}")
+        logging.debug(f"✅ Checklist saved: {checklist_file}")
 
         # Generate new pattern templates
         new_patterns = report.get("new_pattern_candidates", [])
         if new_patterns:
-            print(f"\n🆕 Generating {len(new_patterns)} new pattern templates...")
+            logging.debug(f"\n🆕 Generating {len(new_patterns)} new pattern templates...")
             templates_dir = output_path / "new_patterns"
             templates_dir.mkdir(exist_ok=True)
 
@@ -323,33 +324,33 @@ Generated: {datetime.now().isoformat()}
                 template_file = templates_dir / f"{pattern_name}_README.md"
                 with open(template_file, "w") as f:
                     f.write(template)
-                print(f"   ✅ {pattern_name}")
+                logging.debug(f"   ✅ {pattern_name}")
 
         # Generate reference additions
         references = report.get("references_to_add", [])
         if references:
-            print(f"\n📚 Generating reference additions ({len(references)} items)...")
+            logging.debug(f"\n📚 Generating reference additions ({len(references)} items)...")
             ref_additions = self.generate_reference_additions(references[:10])
             ref_file = output_path / f"references_to_add_{datetime.now().strftime('%Y%m%d_%H%M%S')}.md"
             with open(ref_file, "w") as f:
                 f.write(ref_additions)
-            print(f"✅ References file: {ref_file}")
+            logging.debug(f"✅ References file: {ref_file}")
 
         # Print summary
-        print("\n" + "="*70)
-        print("📈 INTEGRATION SUMMARY")
-        print("="*70)
-        print(f"Session ID: {report.get('session_id')}")
-        print(f"High-confidence insights: {len(report.get('high_confidence_insights', []))}")
-        print(f"Medium-confidence insights: {len(report.get('medium_confidence_insights', []))}")
-        print(f"New pattern candidates: {len(new_patterns)}")
-        print(f"References to add: {len(references)}")
-        print(f"\nGenerated in: {output_path}")
-        print("\nNext steps:")
-        print(f"1. Review checklist: {checklist_file}")
-        print(f"2. Check new pattern templates in: {output_path}/new_patterns/")
-        print(f"3. Apply updates to existing patterns")
-        print(f"4. Commit changes with research references")
+        logging.debug("\n" + "="*70)
+        logging.debug("📈 INTEGRATION SUMMARY")
+        logging.debug("="*70)
+        logging.debug(f"Session ID: {report.get('session_id')}")
+        logging.debug(f"High-confidence insights: {len(report.get('high_confidence_insights', []))}")
+        logging.debug(f"Medium-confidence insights: {len(report.get('medium_confidence_insights', []))}")
+        logging.debug(f"New pattern candidates: {len(new_patterns)}")
+        logging.debug(f"References to add: {len(references)}")
+        logging.debug(f"\nGenerated in: {output_path}")
+        logging.debug("\nNext steps:")
+        logging.debug(f"1. Review checklist: {checklist_file}")
+        logging.debug(f"2. Check new pattern templates in: {output_path}/new_patterns/")
+        logging.debug(f"3. Apply updates to existing patterns")
+        logging.debug(f"4. Commit changes with research references")
 
 
 def main():
@@ -392,23 +393,33 @@ Examples:
 
     args = parser.parse_args()
 
+    # Setup logging
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.FileHandler('research_integration.log'),
+            logging.StreamHandler()
+        ]
+    )
+
     repo_path = Path(args.repo)
     sessions_dir = repo_path / "research_sessions"
 
     if args.list or not args.session:
-        print("\n📂 Available Research Sessions:\n")
+        logging.debug("\n📂 Available Research Sessions:\n")
         if sessions_dir.exists():
             for session_file in sorted(sessions_dir.glob("*.json"), reverse=True):
-                print(f"  {session_file.name}")
+                logging.debug(f"  {session_file.name}")
         else:
-            print("  (No sessions found. Run agentic_ai_research_tool.py first)")
+            logging.debug("  (No sessions found. Run agentic_ai_research_tool.py first)")
         sys.exit(0)
 
     try:
         integrator = ResearchIntegrator(str(repo_path))
         integrator.run(args.session, args.output)
     except Exception as e:
-        print(f"❌ Error: {e}")
+        logging.debug(f"❌ Error: {e}")
         import traceback
         traceback.print_exc()
         sys.exit(1)

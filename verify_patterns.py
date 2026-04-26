@@ -11,6 +11,7 @@ Verify that existing patterns are well-grounded in research and identify:
 
 import json
 import sys
+import logging
 from pathlib import Path
 from datetime import datetime
 from typing import Optional, Dict, List, Any
@@ -114,7 +115,7 @@ Format as JSON with keys: well_documented, sufficient_examples, has_references, 
 
             return verification
         except Exception as e:
-            print(f"  ⚠️  Ollama error: {e}")
+            logging.debug(f"  ⚠️  Ollama error: {e}")
             return self._template_verification(pattern_name, content)
 
     def _template_verification(self, pattern_name: str, content: str) -> Dict[str, Any]:
@@ -134,11 +135,11 @@ Format as JSON with keys: well_documented, sufficient_examples, has_references, 
 
     def run_verification(self) -> Dict[str, Any]:
         """Run verification on all patterns."""
-        print("\n" + "="*70)
-        print("🔍 PATTERN VERIFICATION RUNNER")
-        print("="*70)
-        print(f"Repository: {self.repo_path}")
-        print(f"Ollama Model: {self.model}")
+        logging.debug("\n" + "="*70)
+        logging.info(" PATTERN VERIFICATION RUNNER")
+        logging.debug("="*70)
+        logging.debug(f"Repository: {self.repo_path}")
+        logging.debug(f"Ollama Model: {self.model}")
 
         results = {
             "timestamp": datetime.now().isoformat(),
@@ -152,17 +153,17 @@ Format as JSON with keys: well_documented, sufficient_examples, has_references, 
         if self.patterns_dir.exists():
             patterns_to_verify = [d for d in self.patterns_dir.iterdir() if d.is_dir()]
 
-        print(f"\nFound {len(patterns_to_verify)} patterns to verify\n")
+        logging.debug(f"\nFound {len(patterns_to_verify)} patterns to verify\n")
 
         total_quality = 0
 
         for i, pattern_dir in enumerate(sorted(patterns_to_verify), 1):
             pattern_name = pattern_dir.name
-            print(f"[{i}/{len(patterns_to_verify)}] Verifying: {pattern_name}...", end=" ")
+            logging.debug(f"[{i}/{len(patterns_to_verify)}] Verifying: {pattern_name}...", end=" ")
 
             content = self.load_pattern_readme(pattern_dir)
             if not content:
-                print("❌ No README found")
+                logging.error(" No README found")
                 continue
 
             # Extract information
@@ -185,7 +186,7 @@ Format as JSON with keys: well_documented, sufficient_examples, has_references, 
                 status = "❌"
                 results["patterns_with_issues"] += 1
 
-            print(f"{status} Quality: {quality_score:.2f}")
+            logging.debug(f"{status} Quality: {quality_score:.2f}")
 
             # Store results
             results["patterns"][pattern_name] = {
@@ -331,9 +332,19 @@ def main():
 
     args = parser.parse_args()
 
+    # Setup logging
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.FileHandler('pattern_verification.log'),
+            logging.StreamHandler()
+        ]
+    )
+
     if args.skip_ollama:
         globals()['HAS_OLLAMA'] = False
-        print("⚠️  Skipping Ollama verification")
+        logging.warning("  Skipping Ollama verification")
 
     try:
         verifier = PatternVerifier(args.repo, args.model)
@@ -348,21 +359,21 @@ def main():
             output_path.parent.mkdir(exist_ok=True)
             with open(output_path, "w") as f:
                 f.write(report)
-            print(f"\n💾 Report saved to: {output_path}")
+            logging.debug(f"\n💾 Report saved to: {output_path}")
 
         # Print summary
-        print("\n" + "="*70)
-        print("📊 VERIFICATION SUMMARY")
-        print("="*70)
-        print(f"Average Quality: {results.get('average_quality', 0):.2f}/1.0")
-        print(f"High Quality: {results.get('patterns_verified', 0)}/{len(results.get('patterns', {}))}")
-        print(f"Needs Improvement: {results.get('patterns_with_issues', 0)}/{len(results.get('patterns', {}))}")
+        logging.debug("\n" + "="*70)
+        logging.info(" VERIFICATION SUMMARY")
+        logging.debug("="*70)
+        logging.debug(f"Average Quality: {results.get('average_quality', 0):.2f}/1.0")
+        logging.debug(f"High Quality: {results.get('patterns_verified', 0)}/{len(results.get('patterns', {}))}")
+        logging.debug(f"Needs Improvement: {results.get('patterns_with_issues', 0)}/{len(results.get('patterns', {}))}")
 
         # Print report
-        print("\n" + report)
+        logging.debug("\n" + report)
 
     except Exception as e:
-        print(f"❌ Error: {e}")
+        logging.debug(f"❌ Error: {e}")
         import traceback
         traceback.print_exc()
         sys.exit(1)
