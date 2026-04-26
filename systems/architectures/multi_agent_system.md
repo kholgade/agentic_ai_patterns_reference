@@ -1,3 +1,13 @@
+---
+system: "Multi-agent System"
+patterns: ["Plan-and-Solve", "Supervisor Pattern", "Mixture of Agents"]
+groups: ["task-delegation"]
+execution_model: "multi-agent"
+scale: "small-team"
+primary_concern: "flexibility"
+orchestrates: ["task-decomposition", "parallel-execution", "result-aggregation"]
+---
+
 # Multi-agent System
 
 ## Overview

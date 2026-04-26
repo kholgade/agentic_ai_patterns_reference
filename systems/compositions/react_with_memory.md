@@ -1,3 +1,13 @@
+---
+system: "ReAct + Memory Composition"
+patterns: ["ReAct", "Short-Term Memory", "Long-Term Memory"]
+groups: ["context-tooling"]
+execution_model: "loop"
+scale: "single-agent"
+primary_concern: "efficiency"
+orchestrates: ["memory-retrieval", "reasoning", "memory-storage"]
+---
+
 # ReAct + Memory Composition
 
 ## Idea

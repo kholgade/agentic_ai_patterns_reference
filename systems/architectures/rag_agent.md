@@ -1,3 +1,13 @@
+---
+system: "RAG Agent System"
+patterns: ["Basic RAG", "ReAct", "Tool Use", "Evaluator Optimizer"]
+groups: ["evaluation-loop"]
+execution_model: "loop"
+scale: "single-agent"
+primary_concern: "accuracy"
+orchestrates: ["retrieval", "reasoning", "tool-execution", "quality-evaluation"]
+---
+
 # RAG Agent System
 
 ## Overview

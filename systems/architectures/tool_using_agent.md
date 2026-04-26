@@ -1,3 +1,13 @@
+---
+system: "Tool-using Workflow Agent"
+patterns: ["Router Pattern", "Multi-Tool Orchestration", "Fallback Cascade"]
+groups: ["request-distribution", "runtime-efficiency"]
+execution_model: "hybrid"
+scale: "single-agent"
+primary_concern: "reliability"
+orchestrates: ["request-routing", "tool-execution", "failure-recovery"]
+---
+
 # Tool-using Workflow Agent
 
 ## Overview

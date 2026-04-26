@@ -1,6 +1,10 @@
 ---
 group: "Sequential & Collaborative Processing"
 patterns: ["Prompt Chaining", "Round Robin Collaboration"]
+decision_axis: "sequencing-mechanism"
+spectrum: "task-driven-to-agent-driven"
+problem_statement: "How to process tasks sequentially"
+pattern_relationship: "alternatives"
 ---
 
 # Sequential & Collaborative Processing Patterns

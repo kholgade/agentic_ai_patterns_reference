@@ -1,3 +1,13 @@
+---
+system: "Pattern Selection Guide"
+patterns: ["ReWOO", "ReAct", "Plan-and-Solve"]
+groups: ["execution-planning"]
+execution_model: "decision-tree"
+scale: "single-agent"
+primary_concern: "efficiency"
+orchestrates: ["task-analysis", "pattern-matching", "recommendation"]
+---
+
 # Pattern Selection Guide
 
 ## If task is:

@@ -1,6 +1,10 @@
 ---
 group: "Task Delegation & Orchestration"
 patterns: ["Orchestrator Workers", "Supervisor Pattern", "Hierarchical Team"]
+decision_axis: "control-complexity"
+spectrum: "low-to-high"
+problem_statement: "How to delegate work to specialized agents"
+pattern_relationship: "progressive"
 ---
 
 # Task Delegation & Orchestration Patterns

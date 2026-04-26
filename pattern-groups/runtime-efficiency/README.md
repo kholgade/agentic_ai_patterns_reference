@@ -1,6 +1,10 @@
 ---
 group: "Runtime Resilience & Efficiency"
 patterns: ["Speculative Decoding", "Fallback Cascade"]
+decision_axis: "runtime-optimization"
+spectrum: "latency-to-reliability"
+problem_statement: "How to optimize runtime behavior in production"
+pattern_relationship: "complementary"
 ---
 
 # Runtime Resilience & Efficiency Patterns

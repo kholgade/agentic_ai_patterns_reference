@@ -1,6 +1,10 @@
 ---
 group: "Execution-Centric Planning"
 patterns: ["Program-Aided Language", "ReWOO", "LLM Compiler DAG"]
+decision_axis: "abstraction-level"
+spectrum: "code-to-graph"
+problem_statement: "How to shift from text reasoning to executable structure"
+pattern_relationship: "complementary"
 ---
 
 # Execution-Centric Planning Patterns

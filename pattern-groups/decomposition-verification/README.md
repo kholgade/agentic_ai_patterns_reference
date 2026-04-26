@@ -1,6 +1,10 @@
 ---
 group: "Decomposition & Verification"
 patterns: ["Self-Ask", "Least-to-Most", "Chain-of-Verification"]
+decision_axis: "reliability-strategy"
+spectrum: "decompose-to-verify"
+problem_statement: "How to improve reasoning reliability through explicit structure"
+pattern_relationship: "complementary"
 ---
 
 # Decomposition & Verification Patterns

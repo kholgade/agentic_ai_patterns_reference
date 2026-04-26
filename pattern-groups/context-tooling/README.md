@@ -1,6 +1,10 @@
 ---
 group: "Context & Tooling Infrastructure"
 patterns: ["Context Compression", "MCP Tool Registry"]
+decision_axis: "resource-management"
+spectrum: "memory-to-tools"
+problem_statement: "How to stabilize long-running agent systems"
+pattern_relationship: "complementary"
 ---
 
 # Context & Tooling Infrastructure Patterns

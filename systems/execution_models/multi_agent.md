@@ -1,3 +1,13 @@
+---
+system: "Multi-agent Execution Model"
+patterns: ["Supervisor Pattern", "Hierarchical Team", "Agent Swarm", "Debate Pattern"]
+groups: ["task-delegation", "debate-consensus"]
+execution_model: "multi-agent"
+scale: "large-swarm"
+primary_concern: "flexibility"
+orchestrates: ["role-assignment", "agent-coordination", "consensus-building"]
+---
+
 # Multi-agent Execution Model
 
 ## Description

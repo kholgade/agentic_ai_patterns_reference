@@ -1,6 +1,10 @@
 ---
 group: "Evaluation & Improvement Loop"
 patterns: ["Judge Evaluator", "Evaluator Optimizer"]
+decision_axis: "improvement-loop"
+spectrum: "evaluate-only-to-evaluate-improve"
+problem_statement: "How to evaluate and improve output quality"
+pattern_relationship: "progressive"
 ---
 
 # Evaluation & Improvement Loop Patterns

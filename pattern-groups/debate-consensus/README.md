@@ -1,6 +1,10 @@
 ---
 group: "Debate & Consensus Patterns"
 patterns: ["Debate Pattern", "Agent Swarm"]
+decision_axis: "coordination-structure"
+spectrum: "centralized-to-distributed"
+problem_statement: "How to generate multiple perspectives for better solutions"
+pattern_relationship: "alternatives"
 ---
 
 # Debate & Consensus Patterns

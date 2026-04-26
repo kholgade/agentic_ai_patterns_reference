@@ -1,6 +1,10 @@
 ---
 group: "Workflow Gates & Approval"
 patterns: ["Gate Checkpoint", "Human in the Loop"]
+decision_axis: "review-automation"
+spectrum: "automated-to-human"
+problem_statement: "How to control workflow progression through checkpoints"
+pattern_relationship: "alternatives"
 ---
 
 # Workflow Gates & Approval Patterns

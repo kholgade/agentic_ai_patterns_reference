@@ -1,3 +1,13 @@
+---
+system: "ReWOO + Tool Execution"
+patterns: ["ReWOO", "Tool Use"]
+groups: ["execution-planning"]
+execution_model: "dag"
+scale: "single-agent"
+primary_concern: "latency"
+orchestrates: ["planning", "tool-execution", "result-aggregation"]
+---
+
 # ReWOO + Tool Execution
 
 ## Idea

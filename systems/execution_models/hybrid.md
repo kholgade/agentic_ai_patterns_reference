@@ -1,3 +1,13 @@
+---
+system: "Hybrid Execution Model"
+patterns: ["Orchestrator Workers"]
+groups: ["task-delegation"]
+execution_model: "hybrid"
+scale: "variable"
+primary_concern: "flexibility"
+orchestrates: ["loop-execution", "dag-execution", "sub-workflow-calling"]
+---
+
 # Hybrid Execution Model
 
 ## Description

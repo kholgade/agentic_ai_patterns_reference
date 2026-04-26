@@ -1,3 +1,13 @@
+---
+system: "Autonomous Agent"
+patterns: ["Plan-and-Solve", "ReAct", "Reflexion", "Evaluator Optimizer"]
+groups: ["evaluation-loop"]
+execution_model: "loop"
+scale: "single-agent"
+primary_concern: "accuracy"
+orchestrates: ["planning", "action-execution", "reflection", "termination-check"]
+---
+
 # Autonomous Agent (Controlled Loop)
 
 ## Overview

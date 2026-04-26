@@ -1,3 +1,13 @@
+---
+system: "Reliability Patterns"
+patterns: []
+groups: ["runtime-efficiency"]
+execution_model: "hybrid"
+scale: "single-agent"
+primary_concern: "reliability"
+orchestrates: ["retry-mechanisms", "fallback-handling", "validation-checks"]
+---
+
 # Reliability Patterns
 
 ## Techniques

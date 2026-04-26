@@ -1,6 +1,10 @@
 ---
 group: "Standalone Patterns"
 patterns: ["Parallelization", "Publish-Subscribe"]
+decision_axis: "infrastructure-concern"
+spectrum: "throughput-to-decoupling"
+problem_statement: "How to handle batch processing and event distribution"
+pattern_relationship: "complementary"
 ---
 
 # Standalone Patterns

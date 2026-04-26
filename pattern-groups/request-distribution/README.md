@@ -1,6 +1,10 @@
 ---
 group: "Request Distribution"
 patterns: ["Router Pattern", "Orchestrator Workers"]
+decision_axis: "routing-mechanism"
+spectrum: "static-to-dynamic"
+problem_statement: "How to route and dispatch requests to workers"
+pattern_relationship: "alternatives"
 ---
 
 # Request Distribution Patterns

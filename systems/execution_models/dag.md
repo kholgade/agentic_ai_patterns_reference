@@ -1,3 +1,13 @@
+---
+system: "DAG Execution Model"
+patterns: ["ReWOO", "LLM Compiler DAG"]
+groups: ["execution-planning"]
+execution_model: "dag"
+scale: "single-agent"
+primary_concern: "latency"
+orchestrates: ["parallel-execution", "dependency-resolution", "variable-binding"]
+---
+
 # DAG Execution Model
 
 ## Description
